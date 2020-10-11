@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="017cd5b1-aed1-43b5-a705-78dd0a4d3a88" name="16.SEND_MQ_MESSAGES" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="017cd5b1-aed1-43b5-a705-78dd0a4d3a88fileName">16.SEND_MQ_MESSAGES</con:setting>
+  </con:settings>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

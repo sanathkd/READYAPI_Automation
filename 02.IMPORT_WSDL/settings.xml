@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="04ba4dec-ddb8-48eb-9fea-8138c1096155" name="02.IMPORT_WSDL" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="04ba4dec-ddb8-48eb-9fea-8138c1096155fileName">02.IMPORT_WSDL</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

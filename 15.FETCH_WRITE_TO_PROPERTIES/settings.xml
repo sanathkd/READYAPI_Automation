@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="48fc3f9d-b76c-47d9-accb-291ba8d14a75" name="15.FETCH_WRITE_TO_PROPERTIES" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="48fc3f9d-b76c-47d9-accb-291ba8d14a75fileName">15.FETCH_WRITE_TO_PROPERTIES</con:setting>
+  </con:settings>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

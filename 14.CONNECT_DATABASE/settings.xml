@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="8422e346-3ed6-4697-a5e2-8d014d387062" name="14.CONNECT_DATABASE" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="8422e346-3ed6-4697-a5e2-8d014d387062fileName">14.CONNECT_DATABASE</con:setting>
+  </con:settings>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

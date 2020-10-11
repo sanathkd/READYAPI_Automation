@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="df6b5ec4-2a83-49b4-9a94-68ff4a6c1181" name="06.ADD_REMOVE_ASSERTIONS" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="df6b5ec4-2a83-49b4-9a94-68ff4a6c1181fileName">06.ADD_REMOVE_ASSERTIONS</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

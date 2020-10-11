@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="011d4e8e-42d0-4c8d-9be5-52416e7997a0" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="CREATE_NEW_PROJECT" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="011d4e8e-42d0-4c8d-9be5-52416e7997a0fileName">CREATE_NEW_PROJECT</con:setting>
+  </con:settings>
+  <con:testStep type="groovy" name="CREATE_NEW_PROJECT" id="b790b6b0-b77e-4ad6-87aa-28237297ce9e">
+    <con:settings/>
+    <con:config>
+      <script>01.CREATE_NEW_PROJECT</script>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

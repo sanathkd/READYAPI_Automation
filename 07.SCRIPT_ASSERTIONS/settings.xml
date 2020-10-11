@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="c38db2f6-0af8-4789-ba69-c6a122a37082" name="07.SCRIPT_ASSERTIONS" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="c38db2f6-0af8-4789-ba69-c6a122a37082fileName">07.SCRIPT_ASSERTIONS</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

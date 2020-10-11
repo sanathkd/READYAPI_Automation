@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="761ad3cb-7ba6-45d2-848c-907cb7d7bceb" name="08.TRIGGER_PUTTY_TERMINAL" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="761ad3cb-7ba6-45d2-848c-907cb7d7bcebfileName">08.TRIGGER_PUTTY_TERMINAL</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="6c3a332d-86c1-4e1c-b263-4c7f2173727f" name="17.FETCH_LOGS_FROM_SERVER" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="6c3a332d-86c1-4e1c-b263-4c7f2173727ffileName">17.FETCH_LOGS_FROM_SERVER</con:setting>
+  </con:settings>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

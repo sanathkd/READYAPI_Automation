@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="8e9c66e8-674a-4832-a77e-ac4e99cd9ee8" name="04.SETTING_END_POINTS_JDBC" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="8e9c66e8-674a-4832-a77e-ac4e99cd9ee8fileName">04.SETTING_END_POINTS_JDBC</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

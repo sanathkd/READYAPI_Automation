@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="03c33e7c-1c6f-4738-8f57-835929911562" name="11.SWITCH_ACTIVE_TEST_ENV" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="03c33e7c-1c6f-4738-8f57-835929911562fileName">11.SWITCH_ACTIVE_TEST_ENV</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>
