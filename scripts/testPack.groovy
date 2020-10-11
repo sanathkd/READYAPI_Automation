@@ -1,0 +1,427 @@
+/* Developed by @E600685
+ * Restricted usage, access limited to BFS team inside organization "TIETOEVRY"
+ * Use this code to get below details
+ * - Norwegian Bank Details and credentials to use in PR PIN project
+ * - Payment Renewal Test Environment Details
+ */
+
+import java.util.Scanner;
+
+class detectTestEnvironment {
+    public static void main(String[] args) {
+        get_BankDetails();
+        get_EnvironmentDetails();
+        close_Scanner();
+    }
+
+    public static void close_Scanner() {
+        Scanner read = new Scanner(System.in);
+        read.close();
+    }
+
+    public static void get_BankDetails() {
+        System.out.println( "\n***************************** Bank Details *****************************");
+        System.out.println(
+                "Enter Bank Org ID: (Valid Values: 1802 / 2544 / 3201 / 3240 / 3411 / 3625 / 3890 / 4201 / 4701 / 9001 / 9055 /35803100 )");
+        Scanner read = new Scanner(System.in);
+        String orgid = read.nextLine();
+
+        String[] details = getBankDetailsOf(orgid);
+        if (details[0] != null) {
+            for (String detail : details) {
+                System.out.print("\n" + detail);
+            }
+        }
+    }
+
+    public static void get_EnvironmentDetails() {
+        System.out.println( "\n***************************** Environment Details *****************************");
+        System.out.println(
+                "Enter Test Environment Name: (Valid Env Names: D2/D3/D4/D5/D6/D7/D8/D9/D10/D11/D12/D13/D14/D15/D16/D17/S1/S4/N1/r-d1/r-s6/r-s8/r-a1 / r-a4)");
+        Scanner read = new Scanner(System.in);
+        String getData = (read.nextLine()).toLowerCase();
+
+        String[] values = getDetailsOf(getData);
+        if (values[0] != null) {
+            for (String value : values) {
+                System.out.print("\n" + value);
+            }
+        }
+    }
+
+    public static String[] getBankDetailsOf(String orgid) {
+        String[] list = new String[5];
+        String credentials;
+        String agentBankBic;
+        String bankName;
+        String oldBankOrgId;
+
+        if (!orgid.isEmpty()) {
+            switch (orgid) {
+                case "1802":
+                case "1801":
+                    orgid = "1802";
+                    credentials = "031110130104004259CjG5fYQwiCKYYovMhb%2FrJmTJZQe%2BFzz%2FRASphHZEo9Vo%2Bzq0WRhPZ%2FP3hY9BTDejrSIpQnXuqKD%2FMjoNuGS8RMPTmTCgkOmjGPUUQDIt8vpbiJn4Fc6bD%2F0%2B%2FgX%2BkhndHfX94rnv%2BvYLqKvAWlCL3GmfsOE%2BimPYAkyRKA%2FtIa1gSbV8PL7TnEYVTVAJx4r68CQtGWcP1JJdSy2emkS35z5zlVuQx1%2FZuR5EQEMBt0%3DMJ9mr8MlUz4bcCd6zAOV6sEczhY54JHkm33YPoXqjRlyrgjeDwGsKf%2Fcq92g4AzymsGcvdgyw4xZMm8dKHdTXtabRriIOvYGVB4iPLTunaQnnRzAImVO%2FbA5Fyss6UFyxc8WoWZlYQEjBGmq16rPU6ASBtaf1OhC18rl%2BAEiruY%3D";
+                    agentBankBic = "SHEDNO22XXX";
+                    bankName = "Sparebank 1 Østlandet";
+                    oldBankOrgId = "1801";
+                    break;
+                case "2544":
+                case "2489":
+                    orgid = "2544";
+                    credentials = "031110130104004250tu4YEEzPmBtrqnqspzaepmTJZQe%2BFzz%2FRASphHZEo9Vo%2Bzq0WRhPZ%2FP3hY9BTDejrSIpQnXuqKD%2FMjoNuGS8TkX6gR1agFyi03KQsWFB8BXfj%2BAtAgQbSaQcGy0csN5dHfX94rnv%2BvYLqKvAWlCL3GmfsOE%2BimPYAkyRKA%2FtIa1gSbV8PL7TnEYVTVAJx4r68CQtGWcP1JJdSy2emkS3y6yjge28rRaLF%2FZDAw52VE%3DF%2BBuvl5Swo7QVycQAlssDjzA%2FqUYwG5I%2Bn9Yc77Cs5IifWIRMpjIt89tk4zeyJMN6oeBYS9lDE7io0LHd6JJOdmFGZWyNUfk5%2BNO8WAxUjXVP4S5ZgUBHouwzBpDTyarrLwle0lsgGHBvaIeSsJ5ysnvZLV4aJjU2BawhuaDYjs%3D";
+                    agentBankBic = "VEFONO21XXX";
+                    bankName = "SpareBank 1 BV";
+                    oldBankOrgId = "2489";
+                    break;
+                case "3201":
+                case "3229":
+                    orgid = "3201";
+                    credentials = "03111013010400425%2BTtmFtxR%2FMqdvgamK6k6d5mTJZQe%2BFzz%2FRASphHZEo9Vo%2Bzq0WRhPZ%2FP3hY9BTDejrSIpQnXuqKD%2FMjoNuGS8RMPTmTCgkOmjGPUUQDIt8sfdn%2FX0ESHB%2BC%2Fdu2%2FMjDAdHfX94rnv%2BvYLqKvAWlCL3GmfsOE%2BimPYAkyRKA%2FtIa1gSbV8PL7TnEYVTVAJx4r68CQtGWcP1JJdSy2emkS3yVm%2FZktkwGVxbzUt0cgEVo%3DYOylu9Q2hknEBdhKBQZ3y0EhkOuxmxzg00bLf1JlN43718zhpPBrie07bfHhiXcpnwAOucAuDAVGmJ3JPt3B%2Fy4eGDxVLddD%2FplarxetvAhn7R38koB30sqnT0sTXTOf7%2FhYaUoHRhGQtKHfJ%2FsYf82RKwGF2Q96e6ej0lZQ%2BlQ%3D";
+                    agentBankBic = "SPRONO22XXX";
+                    bankName = "Sparebank 1 SR-Bank";
+                    oldBankOrgId = "3229";
+                    break;
+                case "3240":
+                case "3249":
+                    orgid = "3240";
+                    credentials = "03111013010400425f1NrHPQZaxr54KU0fLjn7JmTJZQe%2BFzz%2FRASphHZEo9Vo%2Bzq0WRhPZ%2FP3hY9BTDejrSIpQnXuqKD%2FMjoNuGS8RMPTmTCgkOmjGPUUQDIt8v5TVrl9i9Ebz5HgsZTR9midHfX94rnv%2BvYLqKvAWlCL3GmfsOE%2BimPYAkyRKA%2FtIa1gSbV8PL7TnEYVTVAJx4r68CQtGWcP1JJdSy2emkS30WgrppswDaomRTH1dsyqkc%3DPH8qz%2F7z%2FaW8t%2B7QUJjmEFuYSy9u1EJm6%2Fm98IN2CQxqfaenI2SpMloheua0L6go5YGKz5IwQjs%2F42NK0N5Mwka10DNUjhhdD4qYodUsk8FMEgJyW54n2YfD1mN9Kngx1ybMzyRzEdwXux7OAa6aKpdblmcwALeV1%2F380WYNBiI%3D";
+                    agentBankBic = "HAUGNO21XXX";
+                    bankName = "Haugesund Sparebank";
+                    oldBankOrgId = "3249";
+                    break;
+                case "3411":
+                case "3400":
+                    orgid = "3411";
+                    credentials = "03111013010400425PXR71G2bmEWm1n7P5D5kjpmTJZQe%2BFzz%2FRASphHZEo9Vo%2Bzq0WRhPZ%2FP3hY9BTDejrSIpQnXuqKD%2FMjoNuGS8RMPTmTCgkOmjGPUUQDIt8uFXnVMu4D8yollgi6lmcPmdHfX94rnv%2BvYLqKvAWlCL3GmfsOE%2BimPYAkyRKA%2FtIa1gSbV8PL7TnEYVTVAJx4r68CQtGWcP1JJdSy2emkS33tKhg3hIT5%2BMB9%2Fz7JtkwE%3DHMPxPioE2MGnA009bnVmZ4FixALmwieXnhUIrNK9vNDWL4yldrK%2Bpz9D3y4D%2FDISsfJfzlhjs58ySaaQ6Rmg0Ylo93glQ0rXKEmy%2FsonTDzICahURTNiFU%2Fkv7QBaN7gUxy301GWLze19oyRyymJXHB1OWkGdwyFHtzVWlgRCzI%3D";
+                    agentBankBic = "FANANOB1XXX";
+                    bankName = "Fana Sparebank";
+                    oldBankOrgId = "3400";
+                    break;
+                case "3625":
+                case "3601":
+                    orgid = "3625";
+                    credentials = "03110013010400445gft3cRnCLPWWq8xlQ7RTFGToxV2ar6TuwU6Z3UeBuPGOtIilCde6ooP8yOg24ZLxjrSIpQnXuqKD/MjoNuGS8Rw4mB1dHsCbdEPzxdSUScEOatyHX5qqpMbWdg9sXd9OjrSIpQnXuqKD/MjoNuGS8Y60iKUJ17qig/zI6DbhkvGOtIilCde6ooP8yOg24ZLxjrSIpQnXuqKD/MjoNuGS8VQ+cJDNKa9VYZxw7KIYbHB8cLeYBVPv9zeRx72/R0ziZwLpDJ3GXhXq1GEwqQfSKYJ2tYpapZTAlGka5wOfU82PaZrpEiGpF2MtWFUNZT5mGde8AMKM7YjZLq7bNqLJkX2jWnq8NpJv3mKcnhxevntuGj+LNVvt9Yd3A4XTDgHK8R22vZAGljeNQwWelwnd9cTDrDHgPSubME8PWzJvEoc=";
+                    agentBankBic = "SPAVNOBBXXX";
+                    bankName = "Sparebanken Vest";
+                    oldBankOrgId = "3601";
+                    break;
+                case "3890":
+                case "3702":
+                    orgid = "3890";
+                    credentials = "03111013010400425PXR71G2bmEWm1n7P5D5kjpmTJZQe%2BFzz%2FRASphHZEo9Vo%2Bzq0WRhPZ%2FP3hY9BTDejrSIpQnXuqKD%2FMjoNuGS8RMPTmTCgkOmjGPUUQDIt8uFXnVMu4D8yollgi6lmcPmdHfX94rnv%2BvYLqKvAWlCL3GmfsOE%2BimPYAkyRKA%2FtIa1gSbV8PL7TnEYVTVAJx4r68CQtGWcP1JJdSy2emkS33tKhg3hIT5%2BMB9%2Fz7JtkwE%3DHMPxPioE2MGnA009bnVmZ4FixALmwieXnhUIrNK9vNDWL4yldrK%2Bpz9D3y4D%2FDISsfJfzlhjs58ySaaQ6Rmg0Ylo93glQ0rXKEmy%2FsonTDzICahURTNiFU%2Fkv7QBaN7gUxy301GWLze19oyRyymJXHB1OWkGdwyFHtzVWlgRCzI%3D";
+                    agentBankBic = "FANANOB1XXX";
+                    bankName = "Fana Sparebank";
+                    oldBankOrgId = "3702";
+                    break;
+                case "4701":
+                case "4702":
+                    orgid = "4701";
+                    credentials = "03111013010400425PXR71G2bmEWm1n7P5D5kjpmTJZQe%2BFzz%2FRASphHZEo9Vo%2Bzq0WRhPZ%2FP3hY9BTDejrSIpQnXuqKD%2FMjoNuGS8RMPTmTCgkOmjGPUUQDIt8uFXnVMu4D8yollgi6lmcPmdHfX94rnv%2BvYLqKvAWlCL3GmfsOE%2BimPYAkyRKA%2FtIa1gSbV8PL7TnEYVTVAJx4r68CQtGWcP1JJdSy2emkS33tKhg3hIT5%2BMB9%2Fz7JtkwE%3DHMPxPioE2MGnA009bnVmZ4FixALmwieXnhUIrNK9vNDWL4yldrK%2Bpz9D3y4D%2FDISsfJfzlhjs58ySaaQ6Rmg0Ylo93glQ0rXKEmy%2FsonTDzICahURTNiFU%2Fkv7QBaN7gUxy301GWLze19oyRyymJXHB1OWkGdwyFHtzVWlgRCzI%3D";
+                    agentBankBic = "SNOWNO22XXX";
+                    bankName = "Sparebank 1 Nord-Norge";
+                    oldBankOrgId = "4702";
+                    break;
+                case "9001":
+                case "9898":
+                    orgid = "9001";
+                    credentials = "03111013010400425eblN3HH6rvLDJvGWdXyMcJmTJZQe%2BFzz%2FRASphHZEo9Vo%2Bzq0WRhPZ%2FP3hY9BTDejrSIpQnXuqKD%2FMjoNuGS8RMPTmTCgkOmjGPUUQDIt8vrXrjxcPc4VoMCtTDQmUiYdHfX94rnv%2BvYLqKvAWlCL3GmfsOE%2BimPYAkyRKA%2FtIa1gSbV8PL7TnEYVTVAJx4r68CQtGWcP1JJdSy2emkS378HnJBf3QS1prLJ4z1O9g8%3DTFEUjfUUes7i5g0M1GyYPjDw66rjprIPQ%2Fab8h0TQJCQL8iPHO%2F%2FwKiwXKIY7W0ZfCst7qIFqtm63Ak%2Ff%2FNlWv0g8HWyfauLo%2FXPclMaLiE5VKhKWv0stqvLtH%2FFHI6%2BAkz%2FcI3yACJX7itX3WeBIHPGrTXBlm9qwe21PbKfTbs%3D";
+                    agentBankBic = "LABANOKKXXX";
+                    bankName = "Bank 1 Oslo AS";
+                    oldBankOrgId = "9898";
+                    break;
+                case "9055":
+                case "9057":
+                    orgid = "9055";
+                    credentials = "03111013010400425D%2F7H7Z5gg09DwvXpTjq9yZmTJZQe%2BFzz%2FRASphHZEo9Vo%2Bzq0WRhPZ%2FP3hY9BTDejrSIpQnXuqKD%2FMjoNuGS8SPw4jIv3rXSzgpq4N9jjv%2FiyOYGOgvTSRjrfX3AqOt%2FdHfX94rnv%2BvYLqKvAWlCL3GmfsOE%2BimPYAkyRKA%2FtIa1gSbV8PL7TnEYVTVAJx4r68CQtGWcP1JJdSy2emkS301roLRkJpcTJ5euYXWp28M%3DDT0PUyyJYPtJYATi9lKmcZlZ%2FQ4AfLGdMV4vQsJLHsWdw0nazr2OjOS6N%2B7pP1Q2e%2BwGoMDIhW2TQtY68ZAqc8hAK%2FCY0hxv9PPFSi0NaV3y%2FvTZGib7vNufOAZaaAUJa4286UAGn2RDUYHbhBIGRCpWgkXKN4jp0X%2FWvSeRkvA%3D";
+                    agentBankBic = "HANDNOKKXXX";
+                    bankName = "Handelsbanken";
+                    oldBankOrgId = "9057";
+                    break;
+                case "35803100":
+                    orgid = "35803100";
+                    credentials = "03111013010400425GWfpot6k%2Fmks%2FEYCsehqE%2B6ypxDnhoQe1cPSToeH6a9Vo%2Bzq0WRhPZ%2FP3hY9BTDejrSIpQnXuqKD%2FMjoNuGS8RMPTmTCgkOmjGPUUQDIt8sl98Nba9Trkx34QzE3Ly%2BmdHfX94rnv%2BvYLqKvAWlCL3GmfsOE%2BimPYAkyRKA%2FtIa1gSbV8PL7TnEYVTVAJx4r68CQtGWcP1JJdSy2emkS34HmOXBCM1LvQxeD1DqTYeQ%3Dup6z7NbZXlvojNz0S2ximCbT2zXJUjXrDKqtkwb0CoA7SX%2BL7Ecls7IhwUH4DcYjClsKGiLdDbYLBGJ2oLAbswvr8PWxvigfnMuEwm9YJZ0eahd%2B4V6Qo1W%2FRcAT1Vrjqdz5yx1c7Zmna3px9f7QmVSpv0Ki%2FjxI%2FdczJpdrLlA%3D";
+                    agentBankBic = "HANDNOKKXXX";
+                    bankName = "Handelsbanken Finland";
+                    oldBankOrgId = "35803100";
+                    break;
+                case "4201":
+                case "4210":
+                default:
+                    orgid = "4201";
+                    credentials = "03110012010400425kglPboRi3h16OVtVL1neI9CfuAtjCBO603eS0IgWm1WWIO7EfpSL4DE%2FlDFi69n1sSaabKNt2t%2BxJppso23a37EmmmyjbdrfutbV53%2FUXGOxjDkLmirISLEmmmyjbdrfsSaabKNt2t%2FXzlyjxYnxhcG46wcbIKp%2FsSaabKNt2t9wBUG0SyIoqFfig80Gq4uXVBtimDzTiu2xJppso23a37Emmmyjbdrf8wP73CNrvpw%3DH5LS2JD%2BVebr3PytlKAocCy8%2FCcrl7tRSepyb0jhKW8A8k07nuvorl7Xoscy%2BybGjXIr2Zj%2Fvprt%2BD1IueT5rqEcvxyyr%2FYELRuLkDS94SfjVw%2FszcGGYfeWnI2Z1NwXorQAZPvT5U6Edafp2sbvWiNKkrzCmFJ4YcuHbGSJCYk%3D";
+                    agentBankBic = "SPTRNO22XXX";
+                    bankName = "SpareBank 1 SMN";
+                    oldBankOrgId = "4210";
+            }
+            list[0] = orgid;
+            list[1] = oldBankOrgId;
+            list[2] = credentials;
+            list[3] = agentBankBic;
+            list[4] = bankName;
+        }
+        return list;
+    }
+
+    public static String[] getDetailsOf(String value) {
+        String[] list = new String[16];
+        String env = "d4";
+        String eos_ip = "10.246.89.107:23621";
+        String ebs_ip = "10.246.89.207";
+        String access = "GLOBAL";
+        String fts_ip = "10.150.187.12";
+        String pwh_ip = "10.246.89.97:1530";
+        String schema = "pwhdata";
+        String paswd = "pwh";
+        String pwh_url = "pen_g_functional";
+        String mq_send = "PAIN001.PRFUNC.CPS.PIN.ONLINE";
+        String mq_recieve = "QT0PPI.PAIN001.PRFUNC.CPS.PIN.ONLINE";
+        String mQHostName = "10.246.89.48";
+        String mQPort = "1430";
+        String mqQueuemanager = "QT0PPI";
+        String mQChannelAuth = "QT0PPI.SEPA.CL";
+        String exaUrl = null;
+
+        if (value.contains("d2") || value.contains("10.246.89.106:22411")) {
+            env = "d2";
+            eos_ip = "10.246.89.106:22411";
+            pwh_url = "pwh_g_d2";
+            pwh_ip = "10.246.89.180";
+            mq_send = "PAIN001.SPRINT.CPS.PIN.ONLINE";
+            mq_recieve = "QT0PPI.PAIN001.SPRINT.CPS.PIN.ONLINE";
+            exaUrl = "(DESCRIPTION=(ADDRESS_LIST=(LOAD_BALANCE=ON)(FAILOVER=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=dlt-exa853-scan.unix.cosng.net)(PORT=1530)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=pwh_g_d2)))";
+        } else if (value.contains("d3") || value.contains("10.246.89.107:22521")) {
+            env = "d3";
+            eos_ip = "10.246.89.107:22521";
+            pwh_url = "pwh_g_d3";
+            mq_send = "PAIN001.D3.CPS.PIN.ONLINE";
+            mq_recieve = "QT0PPI.PAIN001.D3.CPS.PIN.ONLINE";
+            exaUrl = "(DESCRIPTION=(ADDRESS_LIST=(LOAD_BALANCE=ON)(FAILOVER=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=dlt-exa853-scan.unix.cosng.net)(PORT=1530)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=pwh_g_d3)))";
+        } else if (value.contains("d4") || value.contains("10.246.89.107:23621")) {
+            env = "d4";
+            eos_ip = "10.246.89.107:23621";
+            pwh_url = "pen_g_functional";
+            schema = "pendata";
+            paswd = "pen";
+            mq_send = "PAIN001.PRFUNC.CPS.PIN.ONLINE";
+            mq_recieve = "QT0PPI.PAIN001.PRFUNC.CPS.PIN.ONLINE";
+        } else if (value.contains("d5") || value.contains("10.246.89.107:22561")) {
+            env = "d5";
+            eos_ip = "10.246.89.107:22561";
+            pwh_url = "pwh_g_d5";
+            mq_send = "PAIN001.SPRINTREL.CPS.PIN.ONLINE";
+            mq_recieve = "QT0PPI.PAIN001.SPRINTREL.CPS.PIN.ONLINE";
+        } else if (value.contains("d6") || value.contains("10.246.89.108:22641")) {
+            env = "d6";
+            eos_ip = "10.246.89.108:22641";
+            pwh_url = "pwh_g_d6";
+            mq_send = "PAIN001.D6.CPS.PIN.ONLINE";
+            mq_recieve = "QT0PPI.PAIN001.D6.CPS.PIN.ONLINE";
+        } else if (value.contains("d7") || value.contains("10.246.89.106:20811")) {
+            env = "d7";
+            eos_ip = "10.246.89.106:20811";
+            pwh_url = "pen_g_sprint";
+            schema = "pendata";
+            paswd = "pen";
+            mq_send = "PIN.D7.CPS.PAIN001ONLINE";
+            mq_recieve = "PIN.D7.CPS.PAIN001ONLINE.QL";
+        } else if (value.contains("d8") || value.contains("10.246.89.108:29221")) {
+            env = "d8";
+            eos_ip = "10.246.89.108:29221";
+            pwh_url = "pwh_g_d8";
+            mq_send = "PAIN001.D8.CPS.PIN.ONLINE";
+            mq_recieve = "QT0PPI.PAIN001.D8.CPS.PIN.ONLINE";
+        } else if (value.contains("d9") || value.contains("10.246.89.212:29181")) {
+            env = "d9";
+            eos_ip = "10.246.89.212:29181";
+            pwh_url = "pwh_g_d9";
+            mq_send = "PAIN001.D9.CPS.PIN.ONLINE";
+            mq_recieve = "QT0PPI.PAIN001.D9.CPS.PIN.ONLINE";
+        } else if (value.contains("d10") || value.contains("10.246.89.212:29191")) {
+            env = "d10";
+            eos_ip = "10.246.89.212:29191";
+            pwh_url = "pwh_g_d10";
+            mq_send = "PAIN001.D10.CPS.PIN.ONLINE";
+            mq_recieve = "QT0PPI.PAIN001.D10.CPS.PIN.ONLINE";
+        } else if (value.contains("d11") || value.contains("10.246.89.212:29201")) {
+            env = "d11";
+            eos_ip = "10.246.89.212:29201";
+            pwh_url = "pwh_g_d11";
+            mq_send = "PAIN001.D11.CPS.PIN.ONLINE";
+            mq_recieve = "QT0PPI.PAIN001.D11.CPS.PIN.ONLINE";
+        } else if (value.contains("d12") || value.contains("10.246.89.212:29211")) {
+            env = "d12";
+            eos_ip = "10.246.89.212:29211";
+            pwh_url = "pwh_g_d12";
+            mq_send = "PAIN001.D12.CPS.PIN.ONLINE";
+            mq_recieve = "QT0PPI.PAIN001.D12.CPS.PIN.ONLINE";
+        } else if (value.contains("d13") || value.contains("10.246.89.108:29231")) {
+            env = "d13";
+            eos_ip = "10.246.89.108:29231";
+            pwh_url = "pwh_g_d13";
+            mq_send = "PAIN001.D13.CPS.PIN.ONLINE";
+            mq_recieve = "QT0PPI.PAIN001.D13.CPS.PIN.ONLINE";
+            exaUrl = "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.246.89.97)(PORT=1530))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=pwh_g_d13)))";
+        } else if (value.contains("d14") || value.contains("10.246.89.108:29241")) {
+            env = "d14";
+            eos_ip = "10.246.89.108:29241";
+            pwh_url = "pwh_g_d14";
+            mq_send = "PAIN001.D14.CPS.PIN.ONLINE";
+            mq_recieve = "QT0PPI.PAIN001.D14.CPS.PIN.ONLINE";
+            exaUrl = "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.246.89.97)(PORT=1530))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=pwh_g_d14)))";
+        } else if (value.contains("d15") || value.contains("10.246.89.108:29251")) {
+            env = "d15";
+            eos_ip = "10.246.89.108:29251";
+            pwh_url = "pwh_g_d15";
+            mq_send = "PAIN001.D15.CPS.PIN.ONLINE";
+            mq_recieve = "QT0PPI.PAIN001.D15.CPS.PIN.ONLINE";
+            exaUrl = "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.246.89.97)(PORT=1530))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=pwh_g_d15)))";
+        } else if (value.contains("d16") || value.contains("10.246.89.108:29101")) {
+            env = "d16";
+            eos_ip = "10.246.89.108:29101";
+            pwh_url = "pwh_g_d16";
+            mq_send = "PAIN001.D16.CPS.PIN.ONLINE";
+            mq_recieve = "QT0PPI.PAIN001.D16.CPS.PIN.ONLINE";
+            exaUrl = "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.246.89.97)(PORT=1530))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=pwh_g_d16)))";
+        } else if (value.contains("d17") || value.contains("10.246.89.108:25781")) {
+            env = "d17";
+            eos_ip = "10.246.89.108:25781";
+            pwh_url = "pwh_g_d17";
+            mq_send = "PAIN001.D17.CPS.PIN.ONLINE";
+            mq_recieve = "QT0PPI.PAIN001.D17.CPS.PIN.ONLINE";
+        } else if (value.contains("s1") || value.contains("10.246.89.245:10810") || value.contains("10.246.89.109:20811")
+                || value.contains("10.246.89.110:20811")) {
+            env = "s1";
+            eos_ip = "10.246.89.245:10810";
+            pwh_url = "pwh_g_st";
+            mq_send = "PAIN001.PRSYS.CPS.PIN.ONLINE";
+            mq_recieve = "QT0PPI.PAIN001.PRSYS.CPS.PIN.ONLINE";
+        } else if (value.contains("s4") || value.contains("10.246.89.245:15780")) {
+            env = "s4";
+            eos_ip = "10.246.89.245:15780";
+            pwh_url = "pwh_g_s4";
+            mq_send = "PIN.S4.CPS.PAIN001ONLINE";
+            mq_recieve = "QT0PPI.PIN.S4.CPS.PAIN001ONLINE";
+        } else if (value.contains("n1") || value.contains("10.246.89.245:11190") || value.contains("10.246.89.150:21191")
+                || value.contains("10.246.89.150:21192") || value.contains("10.246.89.151:21192")
+                || value.contains("10.246.89.152:21192")) {
+            env = "n1";
+            eos_ip = "10.246.89.245:11190";
+            pwh_url = "pwh_g_n1";
+            mq_send = "PAIN001.PRNF.CPS.PIN.ONLINE";
+            mq_recieve = "QT0PPI.PAIN001.PRNF.CPS.PIN.ONLINE";
+            exaUrl = "(DESCRIPTION=(ADDRESS_LIST=(LOAD_BALANCE=ON)(FAILOVER=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=dlt-exa853-scan.unix.cosng.net)(PORT=1530)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=pwh_g_n1)))";
+        } else if (value.endsWith("d1") || value.contains("139.114.216.23:21171")) {
+            env = "d1";
+            eos_ip = "139.114.216.23:21171";
+            pwh_url = "pwh_r_devel";
+            pwh_ip = "139.114.222.25:1530";
+            mq_send = "PAIN001.T4.CPS.PIN.ONLINE";
+            mq_recieve = "QT0PPI.PAIN001.T4.CPS.PIN.ONLINE";
+        } else if (value.contains("s6") || value.contains("139.114.216.245:11730") || value.contains("139.114.216.12:21731")
+                || value.contains("139.114.216.13:21731")) {
+            env = "s6";
+            eos_ip = "139.114.216.245:11730";
+            pwh_url = "pwh_r_s6";
+            pwh_ip = "139.114.222.50:1530";
+            mq_send = "PIN.S6.CPS.PAIN001ONLINE";
+            mq_recieve = "QT0PPI.PIN.S6.CPS.PAIN001ONLINE";
+            exaUrl = "(DESCRIPTION=(ADDRESS_LIST=(LOAD_BALANCE=ON)(FAILOVER=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=dlt-exa851-scan.unix.cosng.net)(PORT=1530)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=pwh_r_s6)))";
+        } else if (value.contains("s8") || value.contains("139.114.216.245:12390") || value.contains("139.114.216.12:22391")
+                || value.contains("139.114.216.13:22391")) {
+            env = "s8";
+            eos_ip = "139.114.216.245:12390";
+            pwh_url = "pwh_r_s8";
+            pwh_ip = "139.114.222.25:1530";
+            mq_send = "PAIN001.S8.CPS.PIN.ONLINE";
+            mq_recieve = "QT0PPI.PAIN001.S8.CPS.PIN.ONLINE";
+        } else if (value.contains("a1") || value.contains("139.114.216.245:11460") || value.contains("139.114.216.59:21461")
+                || value.contains("139.114.216.60:21461")) {
+            env = "a1";
+            eos_ip = "139.114.216.245:11460";
+            pwh_url = "pwh_r_a1";
+            mq_send = "PAIN001.A1.CPS.PIN.ONLINE";
+            mq_recieve = "QT0PPI.PAIN001.A1.CPS.PIN.ONLINE";
+            exaUrl = "(DESCRIPTION=(ADDRESS_LIST=(LOAD_BALANCE=ON)(FAILOVER=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=dlt-exa851-scan.unix.cosng.net)(PORT=1530)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=pwh_r_a1)))";
+        } else if (value.contains("a4") || value.contains("139.114.216.245:12470") || value.contains("139.114.216.108:22471")
+                || value.contains("139.114.216.109:22471")) {
+            env = "a4";
+            eos_ip = "139.114.216.245:11460";
+            pwh_url = "pwh_r_a4";
+            mq_send = "PAIN001.A4.CPS.PIN.ONLINE";
+            mq_recieve = "QT0PPI.PAIN001.A4.CPS.PIN.ONLINE";
+            exaUrl = "(DESCRIPTION=(ADDRESS_LIST=(LOAD_BALANCE=ON)(FAILOVER=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=dlt-exa851-scan.unix.cosng.net)(PORT=1530)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=pwh_r_a4)))";
+        } else {
+            value = null;
+            eos_ip = null;
+            System.out.println("*****Could Not identifyTest Environment*****: "+value);
+        }
+
+        if (value != null) {
+            switch(env) {
+                case "d4":
+                case "d6":
+                case "d9":
+                case "d10":
+                case "d11":
+                case "d12":
+                case "d13":
+                case "d14":
+                case "d15":
+                case "d16":
+                case "d17":
+                    ebs_ip = "10.246.89.207";
+                    break;
+                case "d2":
+                case "d3":
+                case "d5":
+                case "d7":
+                case "d8":
+                    ebs_ip = "10.246.89.79";
+                    break;
+                case "s1":
+                case "s4":
+                    ebs_ip = "10.246.89.82";
+                    break;
+                case "n1":
+                    ebs_ip = "10.150.187.40";
+                    break;
+                case "d1":
+                case "s6":
+                case "s8":
+                case "a1":
+                case "a4":
+                    ebs_ip = "139.114.216.65";
+                    access = "RESTRICTED";
+                    fts_ip = "139.114.222.26";
+                    pwh_ip = "139.114.222.25:1530";
+                    mQHostName = "139.114.216.8";
+                    mQPort = "1415";
+                    mqQueuemanager = "QT0RNMQ";
+                    mQChannelAuth = "QT0RNMQ.SEPA.CL";
+                    break;
+                default: throw new IllegalArgumentException("*****Could Not identifyTest Environment*****: "+env);
+            }
+            list[0] = env;
+            list[1] = eos_ip;
+            list[2] = access;
+            list[3] = ebs_ip;
+            list[4] = pwh_url;
+            list[5] = pwh_ip;
+            list[6] = schema;
+            list[7] = paswd;
+            list[8] = fts_ip;
+            list[9] = mq_send;
+            list[10] = mq_recieve;
+            list[11] = mQHostName;
+            list[12] = mQPort;
+            list[13] = mqQueuemanager;
+            list[14] = mQChannelAuth;
+            list[15] = exaUrl;
+        } else {
+            for (int i=0; i<15; i++)
+                list[i] = null;
+        }
+        return list;
+    }
+}
