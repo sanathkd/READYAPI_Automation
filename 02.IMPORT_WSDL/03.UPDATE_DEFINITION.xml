@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="db7fea53-734b-4864-ae7a-e8bf6f38afc3" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="03.UPDATE_DEFINITION" searchProperties="true" timeout="0" disabled="true" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="db7fea53-734b-4864-ae7a-e8bf6f38afc3fileName">03.UPDATE_DEFINITION</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="groovy" name="03.UPDATE_DEFINITION" id="200e9da3-286a-4b12-a8d0-5d7a2c45af81">
+    <con:settings/>
+    <con:config>
+      <script>def project = testRunner.testCase.testSuite.project
+def projectName = project.getName()
+
+UPDATE_DEFINITION.updateDefinition( projectName, "http://www.dneonline.com/calculator.asmx?wsdl" , testRunner );
+println "Definition Updated Successfully";
+
+//testSuite.project.interfaces["some interface name"].deleteOperation("some operation")</script>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

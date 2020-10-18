@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="35cd9f6b-4324-4e4b-b559-6ef5f70f24a8" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="03.NEW_TEST_ENVIRONMENTS" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="35cd9f6b-4324-4e4b-b559-6ef5f70f24a8fileName">03.NEW_TEST_ENVIRONMENTS</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="groovy" name="03.NEW_TEST_ENVIRONMENTS" id="802fd098-5675-4083-92ba-f79a390b5364">
+    <con:settings/>
+    <con:config>
+      <script>//	Create New Test Env in this project
+	NEW_TEST_ENVIRONMENT.add ( "mm" , context );
+
+//	Create New Test Env in Othe prorject
+	NEW_TEST_ENVIRONMENT.add ( "OO" , "GROOVY_SCRIPTING" , context );</script>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

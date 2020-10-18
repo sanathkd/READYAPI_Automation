@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="cef766b1-d0c8-4880-b3a2-43fac00851d3" created="3.4.0" activeEnvironment="Default environment" name="READYAPI_GROOVY_PROJECT" resourceRoot="" compositeProjectFormat="1.3" updated="3.4.0" xmlns:con="http://eviware.com/soapui/config">
-  <con:settings/>
+<con:soapui-project id="cef766b1-d0c8-4880-b3a2-43fac00851d3" created="3.4.0" activeEnvironment="Default environment" name="READYAPI_GROOVY_PROJECT" resourceRoot="" compositeProjectFormat="1.3" updated="3.4.0" encryptionMode="Not encrypted" scriptLibrary="C:\READYAPI_Automation\scripts" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="cef766b1-d0c8-4880-b3a2-43fac00851d3fileName">READYAPI_Automation</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:requirements/>
   <con:properties/>
   <con:wssContainer/>
-  <con:databaseConnectionContainer/>
+  <con:databaseConnectionContainer>
+    <con:databaseConnection>
+      <con:name>PWHDATA</con:name>
+      <con:connectionProperties/>
+    </con:databaseConnection>
+  </con:databaseConnectionContainer>
   <con:jmsConnectionContainer/>
   <con:oAuth2ProfileContainer/>
   <con:oAuth1ProfileContainer/>
+  <con:beforeRunScript>def objProject = context.getProject()
+def projPath = objProject.getPath()
+objProject.setScriptLibrary(projPath + File.separator + "scripts")</con:beforeRunScript>
   <con:eventHandlers type="RequestFilter.filterRequest" name="RequestFilter.filterRequest">
     <con:script>// Sample event script to add custom HTTP header to all outgoing REST, SOAP and HTTP(S) calls
 // This code is often used for adding custom authentication to ReadyAPI functional tests
@@ -36,6 +48,30 @@
 // pw.close()
 // fos.close()</con:script>
   </con:eventHandlers>
+  <con:environment id="2b199163-a487-4add-a792-05c692d25cdb" name="d2" index="0">
+    <con:service type="SOAP" name="CalculatorSoap12">
+      <con:endpoint authProfile="No Authorization">asdfgh</con:endpoint>
+      <con:endpoint authProfile="No Authorization" username="" password="" domain="" incomingWss="" outgoingWss="" wssTimeToLive="" wssType="">http://www.dneonline.com/calculator.asmx</con:endpoint>
+    </con:service>
+    <con:service type="SOAP" name="CalculatorSoap">
+      <con:endpoint authProfile="No Authorization">CCC</con:endpoint>
+      <con:endpoint authProfile="No Authorization" username="" password="" domain="" incomingWss="" outgoingWss="" wssTimeToLive="" wssType="">http://www.dneonline.com/calculator.asmx</con:endpoint>
+    </con:service>
+    <con:databaseConnectionContainer/>
+    <con:jmsConnectionContainer/>
+  </con:environment>
+  <con:environment id="e3cf6d1b-65eb-4aed-a6d8-f162d535db82" name="d3" index="1">
+    <con:service type="SOAP" name="CalculatorSoap12">
+      <con:endpoint>http://www.dneonline.com/calculator.asmx?wsdl</con:endpoint>
+      <con:endpoint authProfile="No Authorization" username="" password="" domain="" incomingWss="" outgoingWss="" wssTimeToLive="" wssType="">http://www.dneonline.com/calculator.asmx</con:endpoint>
+    </con:service>
+    <con:service type="SOAP" name="CalculatorSoap">
+      <con:endpoint>http://www.dneonline.com/calculator.asmx?wsdl</con:endpoint>
+      <con:endpoint authProfile="No Authorization" username="" password="" domain="" incomingWss="" outgoingWss="" wssTimeToLive="" wssType="">http://www.dneonline.com/calculator.asmx</con:endpoint>
+    </con:service>
+    <con:databaseConnectionContainer/>
+    <con:jmsConnectionContainer/>
+  </con:environment>
   <con:authRepository/>
   <con:tags/>
 </con:soapui-project>

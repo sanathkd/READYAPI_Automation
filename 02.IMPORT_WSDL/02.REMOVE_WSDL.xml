@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="924866b1-864d-4823-9e5e-804a32cab074" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="02.REMOVE_WSDL" searchProperties="true" timeout="0" disabled="true" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="924866b1-864d-4823-9e5e-804a32cab074fileName">02.REMOVE_WSDL</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="groovy" name="02.REMOVE_WSDL" id="feb46bd8-ac28-44ab-839c-0d9bf51e4f20">
+    <con:settings/>
+    <con:config>
+      <script>def project = testRunner.testCase.testSuite.project
+def projectName = project.getName()
+
+//testSuite.project.interfaces["some interface name"].deleteOperation("some operation") 
+
+
+REMOVE_WSDL.removeWsdl( projectName, "http://www.dneonline.com/calculator.asmx?wsdl" , testRunner );
+println "Import Finished Successfully";</script>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

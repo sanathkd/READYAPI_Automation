@@ -5,56 +5,22 @@
  * - Payment Renewal Test Environment Details
  * - Creating new Test Environment in READYAPI and setting up service end points
  */
-import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
 
 class DetectTestEnvironment {
-    public static void main(String[] args) {
-        get_BankDetails();
-        get_EnvironmentDetails();
-        close_Scanner();
-    }
-
-    public static void close_Scanner() {
-        Scanner read = new Scanner(System.in);
-        read.close();
-    }
-
-    public static void get_BankDetails() {
-        System.out.println( "\n***************************** Bank Details *****************************");
-        System.out.println(
-                "Enter Bank Org ID: (Valid Values: 1802 / 2544 / 3201 / 3240 / 3411 / 3625 / 3890 / 4201 / 4701 / 9001 / 9055 /35803100 )");
-        Scanner read = new Scanner(System.in);
-        String orgid = read.nextLine();
-
-        String[] details = getBankDetailsOf(orgid);
-        if (details[0] != null) {
-            for (String detail : details) {
-                System.out.print("\n" + detail);
-            }
-        }
-    }
-
-    public static void get_EnvironmentDetails() {
-        System.out.println( "\n***************************** Environment Details *****************************");
-        System.out.println(
-                "Enter Test Environment Name: (Valid Env Names: D2/D3/D4/D5/D6/D7/D8/D9/D10/D11/D12/D13/D14/D15/D16/D17/S1/S4/N1/r-d1/r-s6/r-s8/r-a1 / r-a4)");
-        Scanner read = new Scanner(System.in);
-        String getData = read.nextLine();
-
-        String[] values = getDetailsOf(getData);
-        if (values[0] != null) {
-            for (String value : values) {
-                System.out.print("\n" + value);
-            }
-        }
-    }
-
     public static String[] getBankDetailsOf(String orgid) {
-        String[] list = new String[5];
+//    def listMap = [:];
+        String[] listMap = new String[5];
+        String oldBankOrgId;
         String credentials;
         String agentBankBic;
         String bankName;
-        String oldBankOrgId;
+//        listMap.put("orgid","")
+//        listMap.put("oldBankOrgId","")
+//        listMap.put("credentials","")
+//        listMap.put("agentBankBic","")
+//        listMap.put("bankName","")
 
         if (!orgid.isEmpty()) {
             switch (orgid) {
@@ -63,7 +29,7 @@ class DetectTestEnvironment {
                     orgid = "1802";
                     credentials = "031110130104004259CjG5fYQwiCKYYovMhb%2FrJmTJZQe%2BFzz%2FRASphHZEo9Vo%2Bzq0WRhPZ%2FP3hY9BTDejrSIpQnXuqKD%2FMjoNuGS8RMPTmTCgkOmjGPUUQDIt8vpbiJn4Fc6bD%2F0%2B%2FgX%2BkhndHfX94rnv%2BvYLqKvAWlCL3GmfsOE%2BimPYAkyRKA%2FtIa1gSbV8PL7TnEYVTVAJx4r68CQtGWcP1JJdSy2emkS35z5zlVuQx1%2FZuR5EQEMBt0%3DMJ9mr8MlUz4bcCd6zAOV6sEczhY54JHkm33YPoXqjRlyrgjeDwGsKf%2Fcq92g4AzymsGcvdgyw4xZMm8dKHdTXtabRriIOvYGVB4iPLTunaQnnRzAImVO%2FbA5Fyss6UFyxc8WoWZlYQEjBGmq16rPU6ASBtaf1OhC18rl%2BAEiruY%3D";
                     agentBankBic = "SHEDNO22XXX";
-                    bankName = "Sparebank 1 Ã˜stlandet";
+                    bankName = "Sparebank 1 Østlandet";
                     oldBankOrgId = "1801";
                     break;
                 case "2544":
@@ -154,13 +120,18 @@ class DetectTestEnvironment {
                     bankName = "SpareBank 1 SMN";
                     oldBankOrgId = "4210";
             }
-            list[0] = orgid;
-            list[1] = oldBankOrgId;
-            list[2] = credentials;
-            list[3] = agentBankBic;
-            list[4] = bankName;
+//            listMap.put["orgid",orgid];
+//            listMap.put["oldBankOrgId",oldBankOrgId];
+//            listMap.put["credentials",credentials];
+//            listMap.put["agentBankBic",agentBankBic];
+//            listMap.put["bankName",bankName];
+            listMap[0] = orgid;
+            listMap[1] = oldBankOrgId;
+            listMap[2] = credentials;
+            listMap[3] = bankName;
+            listMap[4] = agentBankBic;
+            return listMap;
         }
-        return list;
     }
 
     public static String[] getDetailsOf(String value) {
@@ -245,7 +216,7 @@ class DetectTestEnvironment {
             pbd = "s2";
             core = "s3";
             eos_ip = "10.246.89.108:29221";
-            aixData = "10.246.89.97:1530/pwh_g_d8";
+            exaData = "(CONNECT_TIMEOUT=10)(RETRY_COUNT=3)(RETRY_DELAY=1)(TRANSPORT_CONNECT_TIMEOUT=1)(ADDRESS_LIST=(LOAD_BALANCE=ON)(FAILOVER=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=dlt-exa853-scan.unix.cosng.net)(PORT=1530)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=pwh_g_d8)))";
             mq_send = "PAIN001.D8.CPS.PIN.ONLINE";
             mq_recieve = "QT0PPI.PAIN001.D8.CPS.PIN.ONLINE";
         } else if (value.contains("d9") || value.contains("10.246.89.212:29181")) {
@@ -398,7 +369,7 @@ class DetectTestEnvironment {
 
         if (value != null) {
 
-//			Differentiate BATCH servers in PIN
+//            Differentiate BATCH servers in PIN
             switch(env) {
                 case "d4":
                 case "d6":
@@ -443,8 +414,8 @@ class DetectTestEnvironment {
                 default: throw new IllegalArgumentException("*****Could Not identifyTest Environment*****: "+env);
             }
 
-//			Differentiate Test Environments using EXADATA and AIXDATA Database
-            if (env.equals("d2") || env.equals("d3")  || env.equals("d4")  || env.equals("d6") || env.equals("d7") || env.equals("d13")  || env.equals("d14")  || env.equals("d15") || env.equals("d16")  || env.equals("n1")  || env.equals("s6")  || env.equals("a1") || env.equals("a4")) {
+//            Differentiate Test Environments using EXADATA and AIXDATA Database
+            if (env.equals("d2") || env.equals("d3")  || env.equals("d4")  || env.equals("d6") || env.equals("d7") || env.equals("d8") || env.equals("d13")  || env.equals("d14")  || env.equals("d15") || env.equals("d16")  || env.equals("n1")  || env.equals("s6")  || env.equals("a1") || env.equals("a4")) {
 
                 exaUrl = "jdbc:oracle:thin:@" + exaData;
                 pwhExaUrl = "jdbc:oracle:thin:"+schema+"/"+paswd+"@//" + exaData;
@@ -452,7 +423,7 @@ class DetectTestEnvironment {
                 databaseConnection = exaUrl;
                 dbConnectionWithHost = pwhExaUrl;
             }
-            else if (env.equals("d5") || env.equals("d8") || env.equals("d9") || env.equals("d10") || env.equals("d11") || env.equals("d12") || env.equals("d17") || env.equals("d1") || env.equals("s8") || env.equals("s1") ) {
+            else if (env.equals("d5") || env.equals("d9") || env.equals("d10") || env.equals("d11") || env.equals("d12") || env.equals("d17") || env.equals("d1") || env.equals("s8") || env.equals("s1") ) {
 
                 aixUrl = "jdbc:oracle:thin:@" + aixData;
                 pwhAixUrl = "jdbc:oracle:thin:"+schema+"/"+paswd+"@//" + aixData;
@@ -461,7 +432,7 @@ class DetectTestEnvironment {
                 dbConnectionWithHost = pwhAixUrl;
             }
 
-//			Differentiate PBD instances
+//            Differentiate PBD instances
             switch (pbd) {
                 case "s2" : pbd_ip = "10.246.89.245:10780"  ; break;
                 case "s4" : pbd_ip = "10.246.89.245:10870"  ; break;
@@ -473,7 +444,7 @@ class DetectTestEnvironment {
                 default : pbd_ip = "10.246.89.108:20891";
             }
 
-//			Differentiate CORE instances
+//            Differentiate CORE instances
             switch (core) {
                 case "s2"   : core_ip = "10.246.89.245:10700"   ; break;
                 case "u"    : core_ip = "139.114.216.245:10730" ; break;
@@ -483,7 +454,7 @@ class DetectTestEnvironment {
                 default : core_ip = "10.246.89.245:10710";
             }
 
-//			Construct Return Values
+//            Construct Return Values
             list[0] = env;
             list[1] = eos_ip;
             list[2] = ebs_ip;

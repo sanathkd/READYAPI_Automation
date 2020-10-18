@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="011d4e8e-42d0-4c8d-9be5-52416e7997a0" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="01.CREATE_NEW_PROJECT" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="011d4e8e-42d0-4c8d-9be5-52416e7997a0fileName">01.CREATE_NEW_PROJECT</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="groovy" name="01.CREATE_NEW_PROJECT" id="b790b6b0-b77e-4ad6-87aa-28237297ce9e">
+    <con:settings/>
+    <con:config>
+      <script>CREATE_NEW_PROJECT.create( "PWH_INSERT_AUTH_DATA" , testRunner);</script>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

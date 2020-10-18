@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="fc51f6cf-aadd-4a8f-bd52-d54623bb2c0d" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="18.OPEN_WEB_BROWSER" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="fc51f6cf-aadd-4a8f-bd52-d54623bb2c0dfileName">18.OPEN_WEB_BROWSER</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="groovy" name="18.OPEN_WEB_BROWSER" id="2370c983-60a1-4cee-a246-7ebcc6118fed">
+    <con:settings/>
+    <con:config>
+      <script>url = "https://www.google.co.in/"
+OPEN_URL.openURL(url);</script>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

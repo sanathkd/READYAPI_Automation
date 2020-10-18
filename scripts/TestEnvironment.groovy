@@ -1,35 +1,36 @@
 import com.eviware.soapui.impl.WsdlInterfaceFactory
 
 class TestEnvironment {
-    public static void addEndPoints( context , log )        {
+    public static void addEndPoints( context )        {
         def project = context.testCase.testSuite.project;
         int envCount = project.getEnvironmentCount();
         for ( int i = 0; i <envCount ; i++ )    {
             def env = project.getEnvironmentAt( i ).getName();
-            add( env , context , log );
+            add( env , context );
         }
     }
-    public static void add( env , context , log )    {
-        def project = context.testCase.testSuite.project;
+    public static void add( env , context )    {
+        env = env.toLowerCase();
+        def project   = context.testCase.testSuite.project;
         def getEnv    = project.getEnvironmentByName(env);
-        def apiCount = project.getInterfaceCount();
+        def apiCount  = project.getInterfaceCount();
         def result    = DetectTestEnvironment.getDetailsOf( env );
-        def validEnv= result[ 0 ];
+        def validEnv  = result[ 0 ];
         def eos_ip    = result[ 1 ];
         def pwhConnectionString = result[ 4 ];
 
         if ( getEnv == null && validEnv != null )        {
-            createNewTestEnvironment( env , apiCount , context , log );
+            createNewTestEnvironment( env , apiCount , context );
             getEnv    = project.getEnvironmentByName( env );
         }
         if ( getEnv != null && validEnv != null )    {
-            setEndPoint( env , eos_ip , apiCount , context , log );
-            setJdbcConnection( env , pwhConnectionString , context , log );
+            setEndPoint( env , eos_ip , apiCount , context );
+            setJdbcConnection( env , pwhConnectionString , context );
         } else if ( validEnv == null )    {
-            log.info "Test Environment is not defined in \"DetectTestEnvironment\" Groovy File"
+            println "Test Environment is not defined in \"DetectTestEnvironment\" Groovy File"
         }
     }
-    public static void createNewTestEnvironment( env , apiCount , context , log )    {
+    public static void createNewTestEnvironment( env , apiCount , context )    {
         def project = context.testCase.testSuite.project;
         project.addNewEnvironment( env );
         project.setActiveEnvironment( env );
@@ -48,9 +49,9 @@ class TestEnvironment {
             activeEnv.populateService( newService , isCopied );
             activeEnv.release();
         }
-        log.info " *** Created New Test Environment "+env+" *** "
+        println " *** Created New Test Environment "+env+" *** "
     }
-    public static void setEndPoint( env , eos_ip , apiCount , context , log )        {
+    public static void setEndPoint( env , eos_ip , apiCount , context )        {
         def project = context.testCase.testSuite.project;
         project.setActiveEnvironment( env );
         def getEnv    = project.getEnvironmentByName(env);
@@ -69,32 +70,32 @@ class TestEnvironment {
                 }
             }
         }
-        log.info "Setting Endpoints for "+env+" is successful, making it ACTIVE Environment";
+        println "Setting Endpoints for "+env+" is successful, making it ACTIVE Environment";
     }
 
-    public static void setJdbcConnection( env , pwhConnectionString , context , log )    {
+    public static void setJdbcConnection( env , pwhConnectionString , context )    {
         def project = context.testCase.testSuite.project;
         def prjDbContainer = project.getDatabaseConnectionContainer();
         def jdbcConnectionCount = project.databaseConnectionContainer.getResourceCount();
         if ( jdbcConnectionCount == 0 )    {
-            log.info "No JDBC Strings Found at Project level, Adding JDBC Connection  "
+            println "No JDBC Strings Found at Project level, Adding JDBC Connection  "
             def connect = prjDbContainer.addResource( "PWHDATA" );
         }
         jdbcConnectionCount = prjDbContainer.getResourceCount();
         if ( jdbcConnectionCount != 0 )        {
             def jdbcTemplateName = prjDbContainer.getResourceAt( 0 ).getName();
             def jdbcTemplateDriver = prjDbContainer.getResourceAt( 0 ).getDriver();
-            addJdbcConnectionToEnvironment( env , pwhConnectionString , context , log );
+            addJdbcConnectionToEnvironment( env , pwhConnectionString , context );
         }
     }
-    public static void addJdbcConnectionToEnvironment( env , pwhConnectionString , context , log )        {
+    public static void addJdbcConnectionToEnvironment( env , pwhConnectionString , context )        {
         def project = context.testCase.testSuite.project;
         def getEnv = project.getEnvironmentByName( env );
         def envDbContainer= getEnv.getDatabaseConnectionContainer();
         def getEnvJdbcCount = envDbContainer.getResourceCount();
         def connection;
         if ( getEnvJdbcCount == 0 )        {
-            log.info "Creating New JDBC connection row for env : "+env
+            println "Creating New JDBC connection row for env : "+env
             connection = envDbContainer.addResource( "PWHDATA" );
             connection.setDriver( "oracle.jdbc.driver.OracleDriver" );
             connection.setConnectionString(pwhConnectionString);
@@ -103,11 +104,11 @@ class TestEnvironment {
                 connection = envDbContainer.getResourceAt( i )
                 def jdbcName = connection.getName();
                 if ( jdbcName.contains ( "PWHDATA" ) )    {
-                    log.info "Found PWHDATA row, Updating the Connection String details "
+                    println "Found PWHDATA row, Updating the Connection String details "
                     connection.setDriver("oracle.jdbc.driver.OracleDriver");
                     connection.setConnectionString(pwhConnectionString);
                 }    else    {
-                    log.info "Creating new row for PWHDATA JDBC and Updating the Connection String"
+                    println "Creating new row for PWHDATA JDBC and Updating the Connection String"
                     connection = envDbContainer.addResource("PWHDATA");
                     connection.setDriver("oracle.jdbc.driver.OracleDriver");
                     connection.setConnectionString(pwhConnectionString);
@@ -115,29 +116,57 @@ class TestEnvironment {
             }
         }
     }
-    public static void removeAll( context , log )    {
+    public static void removeAll( context )    {
         def project = context.testCase.testSuite.project;
         int envCount = project.getEnvironmentCount();
         for ( int i = 0; i < envCount ; i++ )    {
             def env = project.getEnvironmentAt( 0 ).getName();
-            remove(env , context , log )
+            remove(env , context )
         }
     }
-    public static void remove( env , context , log )    {
+    public static void remove( env , context )    {
         def project = context.testCase.testSuite.project;
-        def envName = project.getEnvironmentByName(env)
-        if (envName != null)    {
-            def activeEnv = project.getActiveEnvironment().getName();
-            if (activeEnv == env)    {
-                project.setActiveEnvironment('Default');
-                log.info "Changed Active Environment to DEFAULT"
+        int envCount = project.getEnvironmentCount();
+        env = env.toLowerCase();
+        def envToDelete = null;
+        for ( int i = 0; i < envCount ; i++ )    {
+            def checkEnv = project.getEnvironmentAt( i ).getName();
+            if (checkEnv.equalsIgnoreCase(env) || env.contains(checkEnv) || checkEnv.contains(env)){
+                if (checkEnv == env) {
+                    envToDelete = env;
+                    println (env+" equals "+checkEnv)
+                }else if (env.contains(checkEnv)){
+                    envToDelete = checkEnv;
+                    println (env+" contains "+checkEnv)
+                }else if (checkEnv.contains(env)){
+                    envToDelete = checkEnv;
+                    println (checkEnv+" contains "+env)
+                }else if (env.endsWith(checkEnv)){
+                    envToDelete = checkEnv;
+                    println (env+" endsWith "+checkEnv)
+                }else if (checkEnv.endsWith(env)){
+                    envToDelete = checkEnv;
+                    println (checkEnv+" endsWith "+env)
+                }
             }
-            project.removeEnvironmentByName(env);
-            log.info "Test Environment "+env+" is removed successfully"
+            if (envToDelete != null)    {
+                env = envToDelete;
+                println ("Delete Candidate: "+env);
+                def envName = project.getEnvironmentByName(env)
+                if (envName != null)    {
+                    def activeEnv = project.getActiveEnvironment().getName();
+                    if (activeEnv == env)    {
+                        project.setActiveEnvironment('Default');
+                        println "Changed Active Environment to DEFAULT"
+                    }
+                    project.removeEnvironmentByName(env);
+                    println "Test Environment "+env+" is removed successfully"
+                }
+            }
         }
     }
     
-        public static void importAll( projectName , testRunner )
+    public static void importAll( projectName , testRunner )
     {
         importWsdl( projectName, "authoriz" , testRunner );
         importWsdl( projectName, "standingorder" , testRunner );

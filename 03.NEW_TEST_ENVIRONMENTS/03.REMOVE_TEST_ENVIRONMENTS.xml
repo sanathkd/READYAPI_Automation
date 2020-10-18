@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="210ede9e-8d0a-449a-be0e-51c78372b069" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="03.REMOVE_TEST_ENVIRONMENTS" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="210ede9e-8d0a-449a-be0e-51c78372b069fileName">03.REMOVE_TEST_ENVIRONMENTS</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="groovy" name="03.REMOVE_TEST_ENVIRONMENTS" id="ae8e8457-af1c-409b-9786-e2f0a5669528">
+    <con:settings/>
+    <con:config>
+      <script>//	Remove Test Env in this project
+	NEW_TEST_ENVIRONMENT.remove ( "mm" , context );
+
+//	Remove Test Env in Othe prorject
+	NEW_TEST_ENVIRONMENT.remove ( "OO" , "GROOVY_SCRIPTING" , context );</script>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

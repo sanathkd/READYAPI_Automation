@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="5fb0b3cd-2f40-430a-8561-3ba33dc5185f" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="04.SETTING_END_POINTS" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="5fb0b3cd-2f40-430a-8561-3ba33dc5185ffileName">04.SETTING_END_POINTS</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="groovy" name="04.SETTING_END_POINTS" id="c1962676-902f-4a33-aba5-f2d030e3d569">
+    <con:settings/>
+    <con:config>
+      <script>//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//	Set Service End Points for all WSDL in the project
+//	Parameters: ( "environment" , "End Point URL" , context )
+	SET_ENDPOINTS.set ( "http://www.dneonline.com/calculator.asmx" , context );													//	environment is optioal
+	SET_ENDPOINTS.set ( "d3" , "http://www.dneonline.com/calculator.asmx" , context );
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//	Set specific wsdl with specific End Point within the project
+//	Parameters: ( "environment" , "End Point URL" , "WSDL SERVICE" , context )
+
+	SET_ENDPOINTS.setForWsdl ( "http://www.dneonline.com/calculator.asmx" , "CalculatorSoap" , context );				//	environment is optioal
+	SET_ENDPOINTS.setForWsdl ( "d3", "http://www.dneonline.com/calculator.asmx" , "CalculatorSoap12" , context );
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</script>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

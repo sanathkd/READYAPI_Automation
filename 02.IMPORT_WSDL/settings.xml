@@ -6,5 +6,9 @@
   <con:savedRecentRuns>1</con:savedRecentRuns>
   <con:runType>SEQUENTIAL</con:runType>
   <con:properties/>
+  <con:setupScript>def objProject = context.getTestSuite().getProject()
+def projPath = objProject.getPath()
+objProject.setScriptLibrary(projPath + File.separator + "scripts")
+log.info "TestSuite setUp script!!"</con:setupScript>
   <con:reportParameters/>
 </con:testSuite>
