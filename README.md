@@ -1,4 +1,4 @@
-# READYAPI_Automation
+# READYAPI Automation
 Groovy Scripting Automation Support
 
 This repository mainly holds individual scripts for automation of functional test reference purpose only.
