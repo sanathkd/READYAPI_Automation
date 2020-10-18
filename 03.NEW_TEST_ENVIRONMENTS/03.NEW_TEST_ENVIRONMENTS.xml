@@ -10,7 +10,7 @@
       <script>//	Create New Test Env in this project
 	NEW_TEST_ENVIRONMENT.add ( "mm" , context );
 
-//	Create New Test Env in Othe prorject
+//	Create New Test Env in Othe project
 	NEW_TEST_ENVIRONMENT.add ( "OO" , "GROOVY_SCRIPTING" , context );</script>
     </con:config>
   </con:testStep>

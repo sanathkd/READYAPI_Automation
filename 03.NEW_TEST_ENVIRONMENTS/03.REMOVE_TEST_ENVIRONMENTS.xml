@@ -8,10 +8,10 @@
     <con:settings/>
     <con:config>
       <script>//	Remove Test Env in this project
-	NEW_TEST_ENVIRONMENT.remove ( "mm" , context );
+	NEW_TEST_ENVIRONMENT.remove ( "d2" , context );
 
-//	Remove Test Env in Othe prorject
-	NEW_TEST_ENVIRONMENT.remove ( "OO" , "GROOVY_SCRIPTING" , context );</script>
+//	Remove Test Env in Othe project
+//	NEW_TEST_ENVIRONMENT.remove ( "OO" , "GROOVY_SCRIPTING" , context );</script>
     </con:config>
   </con:testStep>
   <con:properties/>

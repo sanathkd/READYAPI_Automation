@@ -7,11 +7,13 @@
   <con:testStep type="groovy" name="02.IMPORT_WSDL" id="a05680d3-178f-4077-91ae-c01003840c3f">
     <con:settings/>
     <con:config>
-      <script>def project = testRunner.testCase.testSuite.project
-def projectName = project.getName()
+      <script>//	Import WSDL in this project
+	IMPORT_WSDL.importWsdl ( "http://www.dneonline.com/calculator.asmx?wsdl" , testRunner );
 
-IMPORT_WSDL.importWsdl( projectName, "http://www.dneonline.com/calculator.asmx?wsdl" , testRunner );
-println "Import Finished Successfully";</script>
+//	Import WSDL in Othe project
+	IMPORT_WSDL.importWsdl ( "GROOVY_SCRIPTING" , "http://www.dneonline.com/calculator.asmx?wsdl" , testRunner );
+
+println "Done"</script>
     </con:config>
   </con:testStep>
   <con:properties/>

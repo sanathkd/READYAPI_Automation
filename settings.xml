@@ -48,30 +48,6 @@ objProject.setScriptLibrary(projPath + File.separator + "scripts")</con:beforeRu
 // pw.close()
 // fos.close()</con:script>
   </con:eventHandlers>
-  <con:environment id="2b199163-a487-4add-a792-05c692d25cdb" name="d2" index="0">
-    <con:service type="SOAP" name="CalculatorSoap12">
-      <con:endpoint authProfile="No Authorization">asdfgh</con:endpoint>
-      <con:endpoint authProfile="No Authorization" username="" password="" domain="" incomingWss="" outgoingWss="" wssTimeToLive="" wssType="">http://www.dneonline.com/calculator.asmx</con:endpoint>
-    </con:service>
-    <con:service type="SOAP" name="CalculatorSoap">
-      <con:endpoint authProfile="No Authorization">CCC</con:endpoint>
-      <con:endpoint authProfile="No Authorization" username="" password="" domain="" incomingWss="" outgoingWss="" wssTimeToLive="" wssType="">http://www.dneonline.com/calculator.asmx</con:endpoint>
-    </con:service>
-    <con:databaseConnectionContainer/>
-    <con:jmsConnectionContainer/>
-  </con:environment>
-  <con:environment id="e3cf6d1b-65eb-4aed-a6d8-f162d535db82" name="d3" index="1">
-    <con:service type="SOAP" name="CalculatorSoap12">
-      <con:endpoint>http://www.dneonline.com/calculator.asmx?wsdl</con:endpoint>
-      <con:endpoint authProfile="No Authorization" username="" password="" domain="" incomingWss="" outgoingWss="" wssTimeToLive="" wssType="">http://www.dneonline.com/calculator.asmx</con:endpoint>
-    </con:service>
-    <con:service type="SOAP" name="CalculatorSoap">
-      <con:endpoint>http://www.dneonline.com/calculator.asmx?wsdl</con:endpoint>
-      <con:endpoint authProfile="No Authorization" username="" password="" domain="" incomingWss="" outgoingWss="" wssTimeToLive="" wssType="">http://www.dneonline.com/calculator.asmx</con:endpoint>
-    </con:service>
-    <con:databaseConnectionContainer/>
-    <con:jmsConnectionContainer/>
-  </con:environment>
   <con:authRepository/>
   <con:tags/>
 </con:soapui-project>

@@ -1,11 +1,3 @@
-CalculatorSoap12\Add.xml
-CalculatorSoap12\Divide.xml
-CalculatorSoap12\Multiply.xml
-CalculatorSoap12\Subtract.xml
-CalculatorSoap\Add.xml
-CalculatorSoap\Divide.xml
-CalculatorSoap\Multiply.xml
-CalculatorSoap\Subtract.xml
 01.CREATE_NEW_PROJECT\01.CREATE_NEW_PROJECT.xml
 02.IMPORT_WSDL\02.IMPORT_WSDL.xml
 02.IMPORT_WSDL\02.REMOVE_WSDL.xml

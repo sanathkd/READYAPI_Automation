@@ -1,17 +1,20 @@
 import com.eviware.soapui.impl.WsdlInterfaceFactory
 
 class IMPORT_WSDL {
+    
+    public static importWsdl( wsdl , testRunner )  {
+        def projectName = testRunner.testCase.testSuite.project.getName();
+        importWsdl( projectName , wsdl , testRunner )
+    }
 
     public static importWsdl( projectName , wsdl , testRunner )  {
-        def project = testRunner.testCase.testSuite.project
-        def workspace = project.workspace
+        def workspace = testRunner.testCase.testSuite.project.workspace
+        def project   = workspace.getProjectByName(projectName);
         
-        def setProject = workspace.getProjectByName(projectName);
-        
-        if ( setProject != null )    {
+        if ( project != null )    {
             if (wsdl != null)    {
-                println "Adding Service "+wsdl
-                WsdlInterfaceFactory.importWsdl( setProject , wsdl , true);
+                println "Adding Service "+wsdl+" in prject "+projectName
+                WsdlInterfaceFactory.importWsdl( project , wsdl , true);
             }
         }
     }
