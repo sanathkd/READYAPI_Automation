@@ -8,10 +8,10 @@
     <con:settings/>
     <con:config>
       <script>//	Create New Test Env in this project
-	NEW_TEST_ENVIRONMENT.add ( "mm" , context );
+	NEW_TEST_ENVIRONMENT.add ( "test1" , context );
 
 //	Create New Test Env in Othe project
-	NEW_TEST_ENVIRONMENT.add ( "OO" , "GROOVY_SCRIPTING" , context );</script>
+//	NEW_TEST_ENVIRONMENT.add ( "GROOVY_SCRIPTING" , "test2" , context );</script>
     </con:config>
   </con:testStep>
   <con:properties/>

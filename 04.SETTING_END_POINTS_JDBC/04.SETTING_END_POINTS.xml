@@ -9,16 +9,18 @@
     <con:config>
       <script>//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //	Set Service End Points for all WSDL in the project
-//	Parameters: ( "environment" , "End Point URL" , context )
-	SET_ENDPOINTS.set ( "http://www.dneonline.com/calculator.asmx" , context );													//	environment is optioal
-	SET_ENDPOINTS.set ( "d3" , "http://www.dneonline.com/calculator.asmx" , context );
+//	Parameters: ( "projectName" , "environment" , "End Point URL" , context )
+//	SET_ENDPOINTS.set ( "http://www.dneonline.com/calculator.asmx" , context );												//	project &amp; environment are optioal
+//	SET_ENDPOINTS.set ( "te1" , "http://www.dneonline.com/calculator.asmx" , context );
+	SET_ENDPOINTS.set ( "GROOVY_SCRIPTING_Sample" , "te1" , "http://www.dneonline.com/calculator.asmx" , context );
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //	Set specific wsdl with specific End Point within the project
 //	Parameters: ( "environment" , "End Point URL" , "WSDL SERVICE" , context )
 
-	SET_ENDPOINTS.setForWsdl ( "http://www.dneonline.com/calculator.asmx" , "CalculatorSoap" , context );				//	environment is optioal
-	SET_ENDPOINTS.setForWsdl ( "d3", "http://www.dneonline.com/calculator.asmx" , "CalculatorSoap12" , context );
+//	SET_ENDPOINTS.setForWsdl ( "http://www.dneonline.com/calculator.asmx" , "CalculatorSoap" , context );				//	project &amp; environment are optioal
+//	SET_ENDPOINTS.setForWsdl ( "te2", "http://www.dneonline.com/calculator.asmx" , "CalculatorSoap12" , context );
+//	SET_ENDPOINTS.setForWsdl ( "GROOVY_SCRIPTING_Sample" , "te2" , "http://www.dneonline.com/calculator.asmx" , context );
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</script>
     </con:config>

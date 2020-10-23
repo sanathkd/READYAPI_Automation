@@ -9,7 +9,9 @@
   <con:wssContainer/>
   <con:databaseConnectionContainer>
     <con:databaseConnection>
-      <con:name>PWHDATA</con:name>
+      <con:name>JDBC-Connection</con:name>
+      <con:driver>oracle.jdbc.driver.OracleDriver</con:driver>
+      <con:connectionString>sampleConnectionString</con:connectionString>
       <con:connectionProperties/>
     </con:databaseConnection>
   </con:databaseConnectionContainer>
