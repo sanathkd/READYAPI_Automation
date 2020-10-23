@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="f931cdd0-d185-4eb2-921b-0ddeec4f4b20" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="09.DATE_FORMATS" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="f931cdd0-d185-4eb2-921b-0ddeec4f4b20fileName">09.DATE_FORMATS</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="groovy" name="09.DATE_FORMATS" id="fbec79bf-d00e-42a8-8676-4ea8c7f73dc8">
+    <con:settings/>
+    <con:config>
+      <script>//	Various Date formats used in ReadyAPI for different testing purposes
+def my_Date			= java.time.LocalDate.now();
+def my_Date_Time	= java.time.LocalDateTime.now();
+
+//	TODAY DATE
+log.info "Today________________ : "+	my_Date
+
+//	DATE and TIME
+log.info "Date Time____________ : "+my_Date_Time
+log.info "Date Time Usage_____ : "+	my_Date_Time.format(java.time.format.DateTimeFormatter.ofPattern('yyyy-MM-dd_HH:mm:ss'))
+log.info "Unique ID purpose___ : "+	my_Date_Time.format(java.time.format.DateTimeFormatter.ofPattern('yyyyMMdd_HHmmss'))
+
+//	FUTURE
+def future = 5;
+log.info "After "+future+" Days__________ : "+	my_Date.plusDays(future);
+log.info "After "+future+" Date Time_____ : "+	my_Date_Time.plusDays(future);
+
+//	PAST
+def past = 2;
+log.info "Before "+past+" Days_________ : "+	my_Date.minusDays(past);
+log.info "Before "+past+" Date Time___ : "+	my_Date_Time.minusDays(past);</script>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

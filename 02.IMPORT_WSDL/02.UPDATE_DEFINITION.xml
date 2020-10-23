@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase id="db7fea53-734b-4864-ae7a-e8bf6f38afc3" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="03.UPDATE_DEFINITION" searchProperties="true" timeout="0" disabled="true" xmlns:con="http://eviware.com/soapui/config">
+<con:testCase id="db7fea53-734b-4864-ae7a-e8bf6f38afc3" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="02.UPDATE_DEFINITION" searchProperties="true" timeout="0" disabled="true" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
-    <con:setting id="db7fea53-734b-4864-ae7a-e8bf6f38afc3fileName">03.UPDATE_DEFINITION</con:setting>
+    <con:setting id="db7fea53-734b-4864-ae7a-e8bf6f38afc3fileName">02.UPDATE_DEFINITION</con:setting>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
   <con:testStep type="groovy" name="03.UPDATE_DEFINITION" id="200e9da3-286a-4b12-a8d0-5d7a2c45af81">

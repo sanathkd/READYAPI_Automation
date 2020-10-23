@@ -7,21 +7,28 @@
   <con:testStep type="groovy" name="04.SETTING_END_POINTS" id="2c570bc4-8331-4505-b427-1951b3cafa4b">
     <con:settings/>
     <con:config>
-      <script>//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//	Set Service End Points for all WSDL in the project
-//	Parameters: ( "environment" , "End Point URL" , context )
-	SET_JDBC.set ( "http://www.dneonline.com/calculator.asmx" , context );													//	environment is optioal
-	SET_JDBC.set ( "d3" , "http://www.dneonline.com/calculator.asmx" , context );
-	SET_JDBC.set ( "d3" , "http://www.dneonline.com/calculator.asmx" , "" , context );
+      <script>//	Set JDBC URL on project level and per environment in a given project
 
-//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//	Set specific wsdl with specific End Point within the project
-//	Parameters: ( "environment" , "End Point URL" , "WSDL SERVICE" , context )
+//			Use this command to create new test env: 
+//	NEW_TEST_ENVIRONMENT.add ( "test1" , context );
+//	NEW_TEST_ENVIRONMENT.remove ( "test1" , context );
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-	SET_JDBC.setForWsdl ( "http://www.dneonline.com/calculator.asmx" , "CalculatorSoap" , context );				//	environment is optioal
-	SET_JDBC.setForWsdl ( "d3", "http://www.dneonline.com/calculator.asmx" , "CalculatorSoap12" , context );
+//			Parameters: ( "projectName" , "TestEnvironment_Name" , "connection_name" , "connectionDriver" , "connectionString" , context )
+//	SET_JDBC.set ( "GROOVY_SCRIPTING" , "test2" , "JDBC-Name" , "oracle.jdbc.driver.OracleDriver" , "sampleConnectionString" , context );
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</script>
+//			Parameters: ( "connectionString" , context )
+//	SET_JDBC.set ( "sampleConnectionString" , context );	
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//			Parameters: ( "TestEnvironment_Name" , "connectionString" , context )
+//	SET_JDBC.set ( "test1" , "sampleConnectionString" , context );
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//			Parameters: ( "projectName" , "TestEnvironment_Name" , "connectionString" , context )
+	SET_JDBC.set ( "GROOVY_SCRIPTING_sample" , "test" , "sampleConnectionString" , context );
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</script>
     </con:config>
   </con:testStep>
   <con:properties/>

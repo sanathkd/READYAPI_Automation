@@ -3,24 +3,24 @@ import com.eviware.soapui.impl.WsdlInterfaceFactory
 class NEW_TEST_ENVIRONMENT {
     public static void add( env , context )    {
         def projectName   = context.testCase.testSuite.project.getName();
-        add( env , projectName , context )
+        add( projectName , env , context )
     }
     
-    public static void add( env , projectName , context )    {
+    public static void add( projectName , env , context )    {
         env = env.toLowerCase();
         def workspace = context.testCase.testSuite.project.workspace
         def project = workspace.getProjectByName(projectName)
         println "Request Received to Create new test env with name " + env
-        def getEnv    = isEnvExists ( env , project , context );
+        def getEnv    = isEnvExists ( project , env , context );
         def apiCount  = project.getInterfaceCount();
 
         if ( getEnv == null &&  project!= null )    {
-            createNewTestEnvironment( env , apiCount , project , context );
+            createNewTestEnvironment( project , env , apiCount , context );
             println "Success.! Test Environment is created with name "+env+" in Project "+projectName+" \n"
         } else println "Test Environment exists with Name "+getEnv+" in Project "+projectName+" \n"
     }
 
-    public static void createNewTestEnvironment( env , apiCount , project , context )    {
+    public static void createNewTestEnvironment( project , env , apiCount , context )    {
         project.addNewEnvironment( env );
         project.setActiveEnvironment( env );
         println "Created New Test Environment and " + env + " is now Active "
@@ -41,7 +41,7 @@ class NEW_TEST_ENVIRONMENT {
         }
     }
 
-    public static String isEnvExists ( env , project , context )
+    public static String isEnvExists ( project , env , context )
     {
         env = env.toLowerCase();
         int envCount = project.getEnvironmentCount();
@@ -72,14 +72,14 @@ class NEW_TEST_ENVIRONMENT {
      }
     public static void remove( env , context )    { 
         def projectName   = context.testCase.testSuite.project.getName();
-        remove( env , projectName , context );
+        remove( projectName , env , context );
     }
 
-    public static void remove( env , projectName , context )    {
+    public static void remove( projectName , env , context )    {
         println "Request Received to remove test env " + env
         def workspace = context.testCase.testSuite.project.workspace
         def project = workspace.getProjectByName(projectName)
-        def getEnv    = isEnvExists ( env , project , context )
+        def getEnv    = isEnvExists ( project , env , context )
         if ( getEnv != null && project != null )    {
             def envName = project.getEnvironmentByName(getEnv)
             if (envName != null)    {
