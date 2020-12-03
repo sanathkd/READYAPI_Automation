@@ -3,6 +3,7 @@
   <con:settings>
     <con:setting id="77036629-4e62-443d-bb46-479dc021165bfileName">12.LOOPING_TEST_SUITE</con:setting>
   </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
   <con:testStep type="groovy" name="12.LOOPING_TEST_SUITE" id="f0365c13-3783-42ce-a33f-fe88cd1199cc">
     <con:settings/>
     <con:config>

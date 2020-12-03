@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="aa65daa5-3baa-481c-9827-98cb42b1b456" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="14.CONNECT_DATABASE" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="aa65daa5-3baa-481c-9827-98cb42b1b456fileName">14.CONNECT_DATABASE</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="groovy" name="14.CONNECT_DATABASE" id="34e0eec9-d025-457a-8c15-9e769ffdd0b4">
+    <con:settings/>
+    <con:config>
+      <script>//	Import the SQL related JAR files from the internet
+import groovy.sql.Sql;
+connectPwh("connect_Fail");
+
+public void connectPwh( def status )
+{
+	def resultSet;
+	def variable = 'X';
+	
+	def query1 = "SELECT DUMMY FROM DUAL WHERE DUMMY = '"+variable+"' AND 1 = 1 ";
+	def query2 = "AND 1=1 AND DUMMY LIKE '%"+variable+"%' ";
+	def query3 = "AND ROWNUM = 1 ORDER BY DUMMY DESC";
+	def sqlQuery = query1+query2+query3;
+
+	if ( status == 'connect' )
+	{
+		def connect 		= 'jdbc:oracle:thin:@10.11.12.13:8080/dummy_db_d1';
+		def connection	=	Sql.newInstance(connect, "userName", "password", "oracle.jdbc.driver.OracleDriver");
+		resultSet			=	connection.rows(sqlQuery);
+		connection.close();
+	}
+	if ( resultSet != null )
+	{
+		def dummy_Col	=	resultSet.DUMMY[0].toString();
+		log.info "Connection Successful: "+dummy_Col;
+	}
+}</script>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

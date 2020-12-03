@@ -18,6 +18,7 @@ log.info "Today________________ : "+	my_Date
 log.info "Date Time____________ : "+my_Date_Time
 log.info "Date Time Usage_____ : "+	my_Date_Time.format(java.time.format.DateTimeFormatter.ofPattern('yyyy-MM-dd_HH:mm:ss'))
 log.info "Unique ID purpose___ : "+	my_Date_Time.format(java.time.format.DateTimeFormatter.ofPattern('yyyyMMdd_HHmmss'))
+log.info "End To End ID Usage_ : "+	my_Date_Time.format(java.time.format.DateTimeFormatter.ofPattern('yyyy-MM-dd-HH-mm-ss'))
 
 //	FUTURE
 def future = 5;

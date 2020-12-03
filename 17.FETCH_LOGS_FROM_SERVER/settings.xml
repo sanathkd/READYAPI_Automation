@@ -3,6 +3,7 @@
   <con:settings>
     <con:setting id="6c3a332d-86c1-4e1c-b263-4c7f2173727ffileName">17.FETCH_LOGS_FROM_SERVER</con:setting>
   </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
   <con:runType>SEQUENTIAL</con:runType>
   <con:properties/>
   <con:reportParameters/>

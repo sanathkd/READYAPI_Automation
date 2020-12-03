@@ -19,9 +19,7 @@ if ( getEnv != null &amp;&amp; !getEnv.equalsIgnoreCase("Default environment") )
 	def envName = project.getEnvironmentByName(getEnv)
 	log.info "envName: "+envName
 	log.info project.setActiveEnvironment(envName);
-}
-
-log.info "getEnv: "+getEnv</script>
+}</script>
     </con:config>
   </con:testStep>
   <con:properties/>
