@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="43c2e98b-0e37-4f8e-bbf3-9e47a135d43b" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="WORK_SPACE" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="43c2e98b-0e37-4f8e-bbf3-9e47a135d43bfileName">WORK_SPACE</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="groovy" name="WORK_SPACE" id="53d99c24-dfe5-4c19-b699-b55ea5cc55e5">
+    <con:settings/>
+    <con:config>
+      <script>projectName = "GROOVY_SCRIPTING";
+def project = testRunner.testCase.testSuite.project;
+println ("project: "+project)
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+def workspace = project.workspace;
+println ("workspace: "+workspace.getPath())
+
+// getParent is alias for workspace
+def prjpath = project.getParent();
+println ("prjpath: "+prjpath.getPath())
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+def projPath = new com.eviware.soapui.support.GroovyUtils(context).projectPath //gets the path of the project root
+println ("projectPath: "+projPath)
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+def projectExists = null;
+projectExists = workspace.getProjectByName (projectName);
+println ("project Existance --> "+projectExists.getPath()+"___"+projectExists.getName())</script>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>
