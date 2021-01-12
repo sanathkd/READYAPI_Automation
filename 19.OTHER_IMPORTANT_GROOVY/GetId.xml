@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="45d1cfc6-9c62-4fac-b511-1e4c118fb993" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetId" searchProperties="true" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="b1dfcef8-e22d-41fa-b16f-4f720096841ffileName">GetId</con:setting>
+    <con:setting id="45d1cfc6-9c62-4fac-b511-1e4c118fb993fileName">GetId</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="groovy" name="GetRandomId" id="29bb1076-235a-4bc0-a692-c73fff63fc64">
+    <con:settings/>
+    <con:config>
+      <script>import org.apache.commons.lang.RandomStringUtils
+
+testRunner.testCase.setPropertyValue( "msgId", RandomStringUtils.random(35, (('A'..'Z')+('0'..'9')).join()))</script>
+    </con:config>
+  </con:testStep>
+  <con:properties>
+    <con:property>
+      <con:name>msgId</con:name>
+      <con:value>ENLCE995ET9YXQX8GML32OH9K1Q4G2U17BW</con:value>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="893e5aba-6725-4ee1-97a5-6bec37282ee1">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>

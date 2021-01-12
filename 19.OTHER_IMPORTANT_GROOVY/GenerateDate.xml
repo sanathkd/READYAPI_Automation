@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="adef3aaa-8b0d-4fa0-8398-e87de6e7bebc" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="GenerateDate" searchProperties="true" timeout="0" maxResults="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="adef3aaa-8b0d-4fa0-8398-e87de6e7bebcfileName">GenerateDate</con:setting>
+    <con:setting id="adef3aaa-8b0d-4fa0-8398-e87de6e7bebcfileName">GenerateDate</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="groovy" name="GenerateDate" id="f24a70fa-2674-4386-b302-58e1c7b1175c">
+    <con:settings/>
+    <con:config>
+      <script>import java.text.SimpleDateFormat;
+def sdf = new SimpleDateFormat("yyyy-MM-dd");
+def today = Calendar.getInstance();
+def currentDate = today.getTime();
+def addToGetMid = 14;
+def oneWeekFromNow = Calendar.getInstance();
+def oneMonthFromNow = Calendar.getInstance();
+def nextMonthDate = Calendar.getInstance();
+def afterTwoMonths = Calendar.getInstance();
+def lastDay = Calendar.getInstance();
+def exempttodate = Calendar.getInstance()
+oneWeekFromNow.add(Calendar.WEEK_OF_YEAR, 1); //One Week from Current Date
+oneMonthFromNow.add(Calendar.MONTH, 1);     //One Month from Current Date
+nextMonthDate.add(Calendar.MONTH, 1);       //One Month increment for calculating next month first date
+afterTwoMonths.add(Calendar.MONTH, 2);
+nextMonthDate.set(Calendar.DATE, nextMonthDate.getActualMinimum(Calendar.DAY_OF_MONTH));    //First Date of next month
+afterTwoMonths.set(Calendar.DATE, afterTwoMonths.getActualMaximum(Calendar.DAY_OF_MONTH));
+Date nextMonthFirstDate = nextMonthDate.getTime();
+Date twoMonthEnd = afterTwoMonths.getTime();
+exempttodate.add(Calendar.WEEK_OF_YEAR, 1);
+exempttodate.add(Calendar.DATE, 2);
+Date tomorrow = new Date(currentDate.getYear(),currentDate.getMonth(),currentDate.getDate()+1);
+Date midOfNextMonth = new Date(nextMonthFirstDate.getYear(),nextMonthFirstDate.getMonth(),nextMonthFirstDate.getDate()+addToGetMid);
+Date lastDayOfMonth = new Date(nextMonthFirstDate.getYear(),nextMonthFirstDate.getMonth(),nextMonthFirstDate.getDate()-1);
+Date secondLastDay = new Date(nextMonthFirstDate.getYear(),nextMonthFirstDate.getMonth(),nextMonthFirstDate.getDate()-2);
+log.info " CurrentDate:- "+sdf.format(currentDate.getTime());
+log.info " Tomorrow:- "+sdf.format(tomorrow);
+log.info " OneWeekFromNow:- "+sdf.format(oneWeekFromNow.getTime());
+log.info " OneMonthFromNow:- "+sdf.format(oneMonthFromNow.getTime());
+log.info " MidOfNextMonth:- "+sdf.format(midOfNextMonth);
+log.info " LastDayOfMonth:- "+sdf.format(lastDayOfMonth);
+log.info " SecondLastDay:- "+sdf.format(secondLastDay);
+log.info " TwoMonthEnd:- "+sdf.format(twoMonthEnd);
+log.info " skipFromDate:- "+sdf.format(oneWeekFromNow.getTime());
+log.info " skipToDate:- "+sdf.format(exempttodate.getTime());
+testRunner.testCase.setPropertyValue( "currentDate", sdf.format(currentDate.getTime()));
+testRunner.testCase.setPropertyValue( "tomorrow", sdf.format(tomorrow));
+testRunner.testCase.setPropertyValue( "oneWeekFromNow", sdf.format(oneWeekFromNow.getTime()));
+testRunner.testCase.setPropertyValue( "oneMonthFromNow", sdf.format(oneMonthFromNow.getTime()));
+testRunner.testCase.setPropertyValue( "midOfNextMonth", sdf.format(midOfNextMonth));
+testRunner.testCase.setPropertyValue( "lastDayOfMonth", sdf.format(lastDayOfMonth));
+testRunner.testCase.setPropertyValue( "secondLastDay", sdf.format(secondLastDay));
+testRunner.testCase.setPropertyValue( "TwoMonthsEnd", sdf.format(twoMonthEnd));
+testRunner.testCase.setPropertyValue( "skipFromDate", sdf.format(oneWeekFromNow.getTime()));
+testRunner.testCase.setPropertyValue( "skipToDate", sdf.format(exempttodate.getTime()));</script>
+    </con:config>
+  </con:testStep>
+  <con:properties>
+    <con:property>
+      <con:name>currentDate</con:name>
+      <con:value>2018-04-02</con:value>
+    </con:property>
+    <con:property>
+      <con:name>tomorrow</con:name>
+      <con:value>2018-04-03</con:value>
+    </con:property>
+    <con:property>
+      <con:name>oneWeekFromNow</con:name>
+      <con:value>2018-04-09</con:value>
+    </con:property>
+    <con:property>
+      <con:name>oneMonthFromNow</con:name>
+      <con:value>2018-05-02</con:value>
+    </con:property>
+    <con:property>
+      <con:name>midOfNextMonth</con:name>
+      <con:value>2018-05-15</con:value>
+    </con:property>
+    <con:property>
+      <con:name>lastDayOfMonth</con:name>
+      <con:value>2018-04-30</con:value>
+    </con:property>
+    <con:property>
+      <con:name>secondLastDay</con:name>
+      <con:value>2018-04-29</con:value>
+    </con:property>
+    <con:property>
+      <con:name>TwoMonthsEnd</con:name>
+      <con:value>2018-06-30</con:value>
+    </con:property>
+    <con:property>
+      <con:name>skipFromDate</con:name>
+      <con:value>2018-04-09</con:value>
+    </con:property>
+    <con:property>
+      <con:name>skipToDate</con:name>
+      <con:value>2018-04-11</con:value>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="893e5aba-6725-4ee1-97a5-6bec37282ee1">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="da05b3ae-d1a3-4a59-91fe-ba88c18e0b95" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="GetProjectDirectory" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="da05b3ae-d1a3-4a59-91fe-ba88c18e0b95fileName">GetProjectDirectory</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="groovy" name="GetProjectDirectory" id="bd76831b-24dd-46f5-b30a-1d4abb6075fa">
+    <con:settings/>
+    <con:config>
+      <script>import com.eviware.soapui.impl.wsdl.WsdlProject 
+
+def project = context.getTestCase().getTestSuite().getProject() 
+log.info(project.getPath())
+
+testRunner.testCase.setPropertyValue( "ProjectDirectory", project.getPath());</script>
+    </con:config>
+  </con:testStep>
+  <con:properties>
+    <con:property>
+      <con:name>ProjectDirectory</con:name>
+      <con:value>C:\GIT\pin-legacy-soapui</con:value>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+</con:testCase>
