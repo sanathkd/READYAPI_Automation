@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="7a7bc99b-798c-4929-93e8-58d50016affb" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="LOOPING" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="7a7bc99b-798c-4929-93e8-58d50016affbfileName">LOOPING</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="groovy" name="LOOPING" id="f22265d7-0e98-4ee6-90e5-9c857fcca9a3">
+    <con:settings/>
+    <con:config>
+      <script>if( context.loopIndex == null )
+context.loopIndex = 0
+
+if( ++context.loopIndex &lt; 10 )	//	increment by one and compare if less than 10
+testRunner.gotoStepByName("Create")</script>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

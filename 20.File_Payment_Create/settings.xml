@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="9bd13139-bf3c-485d-a067-c40609452e13" name="20.File_Payment_Create" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="f5bd51b7-802d-4025-b986-e3002646bf87fileName">FilePayment</con:setting>
+    <con:setting id="IncludeOverview">true</con:setting>
+    <con:setting id="IncludeResults">true</con:setting>
+    <con:setting id="FlowLayout">true</con:setting>
+    <con:setting id="ErrorDetails">true</con:setting>
+    <con:setting id="IncludeCoverage">true</con:setting>
+    <con:setting id="9bd13139-bf3c-485d-a067-c40609452e13fileName">20.File_Payment_Create</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties>
+    <con:property>
+      <con:name>customerid</con:name>
+      <con:value>01010077571</con:value>
+    </con:property>
+    <con:property userSpecific="true">
+      <con:name>UserID</con:name>
+      <con:value>77571</con:value>
+    </con:property>
+    <con:property userSpecific="true">
+      <con:name>AgreementId</con:name>
+      <con:value>77571</con:value>
+    </con:property>
+    <con:property userSpecific="true">
+      <con:name>accountNumber</con:name>
+      <con:value>42125748338</con:value>
+    </con:property>
+    <con:property userSpecific="true">
+      <con:name>currencyCode</con:name>
+      <con:value>NOK</con:value>
+    </con:property>
+    <con:property userSpecific="true">
+      <con:name>credentials</con:name>
+      <con:value>03111012010400425kglPboRi3h16OVtVL1neI9CfuAtjCBO603eS0IgWm1WWIO7EfpSL4DE%2FlDFi69n1sSaabKNt2t%2BxJppso23a37Emmmyjbdrflpq4f56YEcTwqPbJGRxTVbEmmmyjbdrfsSaabKNt2t%2FXzlyjxYnxhcG46wcbIKp%2FsSaabKNt2t9wBUG0SyIoqFfig80Gq4uXVBtimDzTiu3EfQIWD5xMfpd8V90wfJqE%2FrpIdBWOZCg%3DWlPV5eZ4diuCWN8n8MioYhhi5y3ry7ocUG557FkHElWUtZW5y2o9bV4kNOBI2eIvhnMNNl4KZzZiP60aZOtzU6qC7h54%2FjtOS9LP2XwPBSwC3jUA00HIe25%2FFBsLnNciYlYLbkWKiTZCji3sjsSuUS8K0sIEsS3qoAJRWadlGrE%3D</con:value>
+    </con:property>
+    <con:property userSpecific="true">
+      <con:name>orgid</con:name>
+      <con:value>4201</con:value>
+    </con:property>
+    <con:property userSpecific="true">
+      <con:name>orgId_Bic</con:name>
+      <con:value>SPTRNO22XXX</con:value>
+    </con:property>
+    <con:property>
+      <con:name>customerid_2544</con:name>
+      <con:value>01010507940</con:value>
+    </con:property>
+    <con:property>
+      <con:name>UserID_2544</con:name>
+      <con:value>507940</con:value>
+    </con:property>
+    <con:property>
+      <con:name>AgreementId_2544</con:name>
+      <con:value>507940</con:value>
+    </con:property>
+    <con:property>
+      <con:name>accountNumber_2544</con:name>
+      <con:value>24700179059</con:value>
+    </con:property>
+    <con:property>
+      <con:name>currencyCode_2544</con:name>
+      <con:value>NOK</con:value>
+    </con:property>
+    <con:property>
+      <con:name>customerid_PM</con:name>
+      <con:value>19015420114</con:value>
+    </con:property>
+    <con:property>
+      <con:name>UserID_PM</con:name>
+      <con:value>420114</con:value>
+    </con:property>
+    <con:property>
+      <con:name>AgreementId_PM</con:name>
+      <con:value>420114</con:value>
+    </con:property>
+    <con:property>
+      <con:name>accountNumber_PM</con:name>
+      <con:value>22910251876</con:value>
+    </con:property>
+    <con:property>
+      <con:name>currencyCode_PM</con:name>
+      <con:value>NOK</con:value>
+    </con:property>
+    <con:property>
+      <con:name>customerid_multiAccount</con:name>
+      <con:value>12076350106</con:value>
+    </con:property>
+    <con:property>
+      <con:name>UserID_multiAccount</con:name>
+      <con:value>350106</con:value>
+    </con:property>
+    <con:property>
+      <con:name>AgreementId_multiAccount</con:name>
+      <con:value>350106</con:value>
+    </con:property>
+    <con:property>
+      <con:name>accountNumber_multiAccount</con:name>
+      <con:value>42025401640</con:value>
+    </con:property>
+    <con:property>
+      <con:name>currencyCode_multiAccount</con:name>
+      <con:value>NOK</con:value>
+    </con:property>
+  </con:properties>
+  <con:setupScript>def objProject = context.getTestSuite().getProject()
+def projPath = objProject.getPath()
+objProject.setScriptLibrary(projPath + File.separator + "scripts")
+log.info "TestSuite setUp script!!"</con:setupScript>
+  <con:reportParameters/>
+</con:testSuite>

@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="06a3983d-11f0-49be-a39d-6bd0cc44a0df" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="File_Payments" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="FlowLayout">true</con:setting>
+    <con:setting id="adb3e41f-1277-47ca-a088-657ee41594e5fileName">File_Payments</con:setting>
+    <con:setting id="06a3983d-11f0-49be-a39d-6bd0cc44a0dffileName">File_Payments</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="manualTestStep" name="ReadMe" id="8403d441-e4e0-4e2f-99ec-df1b762a6e7e" disabled="true">
+    <con:description>Here is the utility test case which helps to push message to MQ from SOAPUI,
+Prerequisite : Add below jars from : WebSphere MQ\java\lib => your soapui : ReadyAPI-2.7.0\bin\ext (restart needed).
+CL3Export.jar
+CL3Nonexport.jar
+com.ibm.mq.headers.jar
+com.ibm.mq.jar
+com.ibm.mq.jmqi.jar
+com.ibm.mq.pcf.jar
+com.ibm.mqjms.jar
+dhbcore.jar
+fscontext.jar
+jms.jar
+jndi.jar
+ldap.jar
+providerutil.jar
+rmm.jar
+
+Change all properties as per your MQ manager and MQ in properties.
+Add input file content in : "messagetoSend" property.
+Make sure project level : 'Script library' path can reach : MQMessageUtils.groovy.
+
+Note - Update the folder path in properties at test case level.</con:description>
+    <con:settings/>
+    <con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:expectedResult>Upon running test case, 
+SOAPUI will try to push message 
+On success creates payment and validate messageidentifications are same.
+Based on messageIdentification you can fetch rest of the transactions using paymentSeach services.
+Write subsequest steps to make use of these payments.</con:expectedResult>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="properties" name="queueDetails" id="4436b9f0-afe8-4cfd-901a-620bece7de68">
+    <con:settings/>
+    <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:properties>
+        <con:property>
+          <con:name>mqManager</con:name>
+          <con:value>QT0PPI</con:value>
+        </con:property>
+        <con:property>
+          <con:name>mqHostname</con:name>
+          <con:value>10.246.89.48</con:value>
+        </con:property>
+        <con:property>
+          <con:name>mqPort</con:name>
+          <con:value>1430</con:value>
+        </con:property>
+        <con:property>
+          <con:name>mqChannel</con:name>
+          <con:value>QT0PPI.SEPA.CL</con:value>
+        </con:property>
+        <con:property>
+          <con:name>mqChannelAuth</con:name>
+          <con:value>QT0PPI.SEPA.CL</con:value>
+        </con:property>
+        <con:property>
+          <con:name>sendQueue</con:name>
+          <con:value>PAIN001.PRFUNC.CPS.PIN.ONLINE</con:value>
+        </con:property>
+        <con:property>
+          <con:name>receiveQueue</con:name>
+          <con:value>QT0PPI.PAIN001.PRFUNC.CPS.PIN.ONLINE</con:value>
+        </con:property>
+      </con:properties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="properties" name="customerDetails" id="31939bf6-bed1-4372-8d05-57433242d91c">
+    <con:settings/>
+    <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:properties>
+        <con:property>
+          <con:name>orgid</con:name>
+          <con:value>4201</con:value>
+        </con:property>
+        <con:property>
+          <con:name>orgId_Bic</con:name>
+          <con:value>SPTRNO22XXX</con:value>
+        </con:property>
+        <con:property>
+          <con:name>AgreementId</con:name>
+          <con:value>77571</con:value>
+        </con:property>
+        <con:property>
+          <con:name>UserID</con:name>
+          <con:value>77571</con:value>
+        </con:property>
+        <con:property>
+          <con:name>customerid</con:name>
+          <con:value>01010077771</con:value>
+        </con:property>
+        <con:property>
+          <con:name>accountNumber_0</con:name>
+          <con:value>42125748317</con:value>
+        </con:property>
+        <con:property>
+          <con:name>currencyCode_0</con:name>
+          <con:value>NOK</con:value>
+        </con:property>
+        <con:property>
+          <con:name>accountNumber_1</con:name>
+          <con:value>42025401630</con:value>
+        </con:property>
+        <con:property>
+          <con:name>currencyCode_1</con:name>
+          <con:value>NOK</con:value>
+        </con:property>
+      </con:properties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="properties" name="creditorDetails" id="10f71e1d-a2cf-4fe0-b90d-5ce294489cbc">
+    <con:settings/>
+    <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:properties>
+        <con:property>
+          <con:name>creditorCountry</con:name>
+          <con:value>DE</con:value>
+        </con:property>
+        <con:property>
+          <con:name>creditorAgent_BIC</con:name>
+          <con:value>HAWODEH1XXX</con:value>
+        </con:property>
+        <con:property>
+          <con:name>creditorAccount</con:name>
+          <con:value>DE89370400440532013000</con:value>
+        </con:property>
+      </con:properties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="properties" name="Properties" id="0cd6db2c-b551-43fe-b27a-04e299891274">
+    <con:settings/>
+    <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:properties>
+        <con:property>
+          <con:name>template_Message</con:name>
+          <con:value><![CDATA[<?xml version="1.0" encoding="UTF-8"?><Wrapper xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:pin.payment.edb.com:authpain001wrapper:v1_0" ><auth><![CDATA[header]]]]>><![CDATA[</auth><content><![CDATA[body]]]]>><![CDATA[</content></Wrapper>]]></con:value>
+        </con:property>
+        <con:property>
+          <con:name>template_MessageHeader</con:name>
+          <con:value><![CDATA[<?xml version="1.0" encoding="UTF-8"?><AgreementAuthorizationRequest><authRequest><agreementData><agreementId>AGREEMENT_ID</agreementId><bankId>ORG_ID</bankId><userId>USER_ID</userId><userFirstName>Alex</userFirstName><userLastName>Paulsen</userLastName><userIdType>USAG</userIdType><productID>11</productID><organizationId>CUSTOMER_ID</organizationId><preapproved>false</preapproved><rejectionLevel>TRANSACTION</rejectionLevel><origin>NDR</origin><allowPartialCancellation>false</allowPartialCancellation><allowCancellationPriorToPayment>false</allowCancellationPriorToPayment></agreementData>ADD_ACCOUNTS<metaInformation><receivedTimestamp>DATET14:24:06</receivedTimestamp></metaInformation></authRequest></AgreementAuthorizationRequest>]]></con:value>
+        </con:property>
+        <con:property>
+          <con:name>template_HeaderAccounts</con:name>
+          <con:value><![CDATA[<agreementAccount><accountNumber>ACCOUNT_ID</accountNumber><swiftAdress>BANK_BIC</swiftAdress><currencyCode>CURRENCY_CODE</currencyCode><accountType>CoreAccount</accountType><access>CREDIT_AND_DEBIT</access><bookingLevel>D</bookingLevel><approvalLimit>0</approvalLimit><registerLimit>0</registerLimit><numberOfVerifiers>0</numberOfVerifiers><numberOfApprovers>1</numberOfApprovers></agreementAccount>]]></con:value>
+        </con:property>
+        <con:property>
+          <con:name>template_MessageBody</con:name>
+          <con:value><![CDATA[<?xml version="1.0" encoding="UTF-8"?><Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.04"><CstmrCdtTrfInitn><GrpHdr><MsgId>MSG_ID</MsgId><CreDtTm>DATET16:00:00.053+02:00</CreDtTm><NbOfTxs>TRANSACTION_COUNT</NbOfTxs><CtrlSum>AMT.00</CtrlSum><InitgPty><Nm>Mentor Medier AS</Nm><Id><OrgId><AnyBIC>BANK_BIC</AnyBIC><Othr><Id>122032456</Id><SchmeNm><Cd>BANK</Cd></SchmeNm></Othr></OrgId></Id></InitgPty></GrpHdr>PAYMENTINFO_BODY</CstmrCdtTrfInitn></Document>]]></con:value>
+        </con:property>
+        <con:property>
+          <con:name>template_PaymentInfoBody</con:name>
+          <con:value><![CDATA[<PmtInf><PmtInfId>PAY_INFO_ID</PmtInfId><PmtMtd>TRF</PmtMtd><NbOfTxs>TRANSACTION_COUNT</NbOfTxs><CtrlSum>AMT.00</CtrlSum><PmtTpInf><InstrPrty>NORM</InstrPrty></PmtTpInf><ReqdExctnDt>DATE</ReqdExctnDt><Dbtr><Nm>filepay AS</Nm><PstlAdr><AdrTp>ADDR</AdrTp><AdrLine>Postboks 1337</AdrLine><AdrLine>0107 OSLO</AdrLine></PstlAdr><Id><OrgId><Othr><Id>921095899</Id><SchmeNm><Cd>USAG</Cd></SchmeNm></Othr></OrgId></Id></Dbtr><DbtrAcct><Id><Othr><Id>ACCOUNT_ID</Id><SchmeNm><Cd>BBAN</Cd></SchmeNm></Othr></Id></DbtrAcct><DbtrAgt><FinInstnId><BICFI>BANK_BIC</BICFI></FinInstnId></DbtrAgt><ChrgBr>SHAR</ChrgBr>TRANSACTIONS_BODY</PmtInf>]]></con:value>
+        </con:property>
+        <con:property>
+          <con:name>template_TransactionsBody</con:name>
+          <con:value><![CDATA[<CdtTrfTxInf><PmtId><InstrId>INSTRUCTIONS_ID</InstrId><EndToEndId>ETE_ID</EndToEndId></PmtId><PmtTpInf><InstrPrty>NORM</InstrPrty><CtgyPurp><Cd>SUPP</Cd></CtgyPurp></PmtTpInf><Amt><InstdAmt Ccy='NOK'>AMT.00</InstdAmt></Amt><CdtrAgt><FinInstnId><BICFI>HAWODEH1XXX</BICFI><PstlAdr><AdrTp>ADDR</AdrTp><Ctry>DE</Ctry></PstlAdr></FinInstnId></CdtrAgt><Cdtr><Nm>CREDITOR</Nm><PstlAdr><AdrTp>ADDR</AdrTp><Ctry>DE</Ctry><AdrLine>STREET</AdrLine><AdrLine>STREET2</AdrLine></PstlAdr><CtryOfRes>DE</CtryOfRes></Cdtr><CdtrAcct><Id><Othr><Id>DE89370400440532013000</Id></Othr></Id></CdtrAcct></CdtTrfTxInf>]]></con:value>
+        </con:property>
+        <con:property>
+          <con:name>paymentInfoCount</con:name>
+          <con:value>1</con:value>
+        </con:property>
+        <con:property>
+          <con:name>transaction_Amount</con:name>
+          <con:value>10</con:value>
+        </con:property>
+        <con:property>
+          <con:name>transactionCount</con:name>
+          <con:value>2</con:value>
+        </con:property>
+        <con:property>
+          <con:name>msg_Header</con:name>
+          <con:value><![CDATA[<?xml version="1.0" encoding="UTF-8"?><Wrapper xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:pin.payment.edb.com:authpain001wrapper:v1_0" ><auth><![CDATA[<?xml version="1.0" encoding="UTF-8"?><AgreementAuthorizationRequest><authRequest><agreementData><agreementId>77571</agreementId><bankId>4201</bankId><userId>77571</userId><userFirstName>Alex</userFirstName><userLastName>Paulsen</userLastName><userIdType>USAG</userIdType><productID>11</productID><organizationId>01010077571</organizationId><preapproved>false</preapproved><rejectionLevel>TRANSACTION</rejectionLevel><origin>NDR</origin><allowPartialCancellation>false</allowPartialCancellation><allowCancellationPriorToPayment>false</allowCancellationPriorToPayment></agreementData><agreementAccount><accountNumber>42125748338</accountNumber><swiftAdress>SPTRNO22XXX</swiftAdress><currencyCode>NOK</currencyCode><accountType>CoreAccount</accountType><access>CREDIT_AND_DEBIT</access><bookingLevel>D</bookingLevel><approvalLimit>0</approvalLimit><registerLimit>0</registerLimit><numberOfVerifiers>0</numberOfVerifiers><numberOfApprovers>1</numberOfApprovers></agreementAccount><metaInformation><receivedTimestamp>2021-03-01T14:24:06</receivedTimestamp></metaInformation></authRequest></AgreementAuthorizationRequest>]]]]>><![CDATA[</auth><content><![CDATA[body]]]]>><![CDATA[</content></Wrapper>]]></con:value>
+        </con:property>
+        <con:property>
+          <con:name>msg_Header_PayInfo</con:name>
+          <con:value><![CDATA[<?xml version="1.0" encoding="UTF-8"?><Wrapper xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:pin.payment.edb.com:authpain001wrapper:v1_0" ><auth><![CDATA[<?xml version="1.0" encoding="UTF-8"?><AgreementAuthorizationRequest><authRequest><agreementData><agreementId>77571</agreementId><bankId>4201</bankId><userId>77571</userId><userFirstName>Alex</userFirstName><userLastName>Paulsen</userLastName><userIdType>USAG</userIdType><productID>11</productID><organizationId>01010077571</organizationId><preapproved>false</preapproved><rejectionLevel>TRANSACTION</rejectionLevel><origin>NDR</origin><allowPartialCancellation>false</allowPartialCancellation><allowCancellationPriorToPayment>false</allowCancellationPriorToPayment></agreementData><agreementAccount><accountNumber>42125748338</accountNumber><swiftAdress>SPTRNO22XXX</swiftAdress><currencyCode>NOK</currencyCode><accountType>CoreAccount</accountType><access>CREDIT_AND_DEBIT</access><bookingLevel>D</bookingLevel><approvalLimit>0</approvalLimit><registerLimit>0</registerLimit><numberOfVerifiers>0</numberOfVerifiers><numberOfApprovers>1</numberOfApprovers></agreementAccount><metaInformation><receivedTimestamp>2021-03-01T14:24:06</receivedTimestamp></metaInformation></authRequest></AgreementAuthorizationRequest>]]]]>><![CDATA[</auth><content><![CDATA[<?xml version="1.0" encoding="UTF-8"?><Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.04"><CstmrCdtTrfInitn><GrpHdr><MsgId>010321_0101-577350</MsgId><CreDtTm>2021-03-01T16:00:00.053+02:00</CreDtTm><NbOfTxs>2</NbOfTxs><CtrlSum>20.00</CtrlSum><InitgPty><Nm>Mentor Medier AS</Nm><Id><OrgId><AnyBIC>SPTRNO22XXX</AnyBIC><Othr><Id>122032456</Id><SchmeNm><Cd>BANK</Cd></SchmeNm></Othr></OrgId></Id></InitgPty></GrpHdr><PmtInf><PmtInfId>010321_0101-837277</PmtInfId><PmtMtd>TRF</PmtMtd><NbOfTxs>2</NbOfTxs><CtrlSum>20.00</CtrlSum><PmtTpInf><InstrPrty>NORM</InstrPrty></PmtTpInf><ReqdExctnDt>2021-03-01</ReqdExctnDt><Dbtr><Nm>filepay AS</Nm><PstlAdr><AdrTp>ADDR</AdrTp><AdrLine>Postboks 1337</AdrLine><AdrLine>0107 OSLO</AdrLine></PstlAdr><Id><OrgId><Othr><Id>921095899</Id><SchmeNm><Cd>USAG</Cd></SchmeNm></Othr></OrgId></Id></Dbtr><DbtrAcct><Id><Othr><Id>42125748338</Id><SchmeNm><Cd>BBAN</Cd></SchmeNm></Othr></Id></DbtrAcct><DbtrAgt><FinInstnId><BICFI>SPTRNO22XXX</BICFI></FinInstnId></DbtrAgt><ChrgBr>SHAR</ChrgBr>XMLValueXMLValue</PmtInf></CstmrCdtTrfInitn></Document>]]]]>><![CDATA[</content></Wrapper>]]></con:value>
+        </con:property>
+        <con:property>
+          <con:name>msg_Header_PayInfo_Transactions</con:name>
+          <con:value><![CDATA[<?xml version="1.0" encoding="UTF-8"?><Wrapper xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:pin.payment.edb.com:authpain001wrapper:v1_0" ><auth><![CDATA[<?xml version="1.0" encoding="UTF-8"?><AgreementAuthorizationRequest><authRequest><agreementData><agreementId>77571</agreementId><bankId>4201</bankId><userId>77571</userId><userFirstName>Alex</userFirstName><userLastName>Paulsen</userLastName><userIdType>USAG</userIdType><productID>11</productID><organizationId>01010077571</organizationId><preapproved>false</preapproved><rejectionLevel>TRANSACTION</rejectionLevel><origin>NDR</origin><allowPartialCancellation>false</allowPartialCancellation><allowCancellationPriorToPayment>false</allowCancellationPriorToPayment></agreementData><agreementAccount><accountNumber>42125748338</accountNumber><swiftAdress>SPTRNO22XXX</swiftAdress><currencyCode>NOK</currencyCode><accountType>CoreAccount</accountType><access>CREDIT_AND_DEBIT</access><bookingLevel>D</bookingLevel><approvalLimit>0</approvalLimit><registerLimit>0</registerLimit><numberOfVerifiers>0</numberOfVerifiers><numberOfApprovers>1</numberOfApprovers></agreementAccount><metaInformation><receivedTimestamp>2021-03-01T14:24:06</receivedTimestamp></metaInformation></authRequest></AgreementAuthorizationRequest>]]]]>><![CDATA[</auth><content><![CDATA[<?xml version="1.0" encoding="UTF-8"?><Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.04"><CstmrCdtTrfInitn><GrpHdr><MsgId>010321_0101-577350</MsgId><CreDtTm>2021-03-01T16:00:00.053+02:00</CreDtTm><NbOfTxs>2</NbOfTxs><CtrlSum>20.00</CtrlSum><InitgPty><Nm>Mentor Medier AS</Nm><Id><OrgId><AnyBIC>SPTRNO22XXX</AnyBIC><Othr><Id>122032456</Id><SchmeNm><Cd>BANK</Cd></SchmeNm></Othr></OrgId></Id></InitgPty></GrpHdr><PmtInf><PmtInfId>010321_0101-837277</PmtInfId><PmtMtd>TRF</PmtMtd><NbOfTxs>2</NbOfTxs><CtrlSum>20.00</CtrlSum><PmtTpInf><InstrPrty>NORM</InstrPrty></PmtTpInf><ReqdExctnDt>2021-03-01</ReqdExctnDt><Dbtr><Nm>filepay AS</Nm><PstlAdr><AdrTp>ADDR</AdrTp><AdrLine>Postboks 1337</AdrLine><AdrLine>0107 OSLO</AdrLine></PstlAdr><Id><OrgId><Othr><Id>921095899</Id><SchmeNm><Cd>USAG</Cd></SchmeNm></Othr></OrgId></Id></Dbtr><DbtrAcct><Id><Othr><Id>42125748338</Id><SchmeNm><Cd>BBAN</Cd></SchmeNm></Othr></Id></DbtrAcct><DbtrAgt><FinInstnId><BICFI>SPTRNO22XXX</BICFI></FinInstnId></DbtrAgt><ChrgBr>SHAR</ChrgBr><CdtTrfTxInf><PmtId><InstrId>010321_0101-699590</InstrId><EndToEndId>ETE_010321_0101</EndToEndId></PmtId><PmtTpInf><InstrPrty>NORM</InstrPrty><CtgyPurp><Cd>SUPP</Cd></CtgyPurp></PmtTpInf><Amt><InstdAmt Ccy='NOK'>10.00</InstdAmt></Amt><CdtrAgt><FinInstnId><BICFI>HAWODEH1XXX</BICFI><PstlAdr><AdrTp>ADDR</AdrTp><Ctry>DE</Ctry></PstlAdr></FinInstnId></CdtrAgt><Cdtr><Nm>CREDITOR</Nm><PstlAdr><AdrTp>ADDR</AdrTp><Ctry>DE</Ctry><AdrLine>STREET</AdrLine><AdrLine>STREET2</AdrLine></PstlAdr><CtryOfRes>DE</CtryOfRes></Cdtr><CdtrAcct><Id><Othr><Id>DE89370400440532013000</Id></Othr></Id></CdtrAcct></CdtTrfTxInf><CdtTrfTxInf><PmtId><InstrId>010321_0101-699590</InstrId><EndToEndId>ETE_010321_0101</EndToEndId></PmtId><PmtTpInf><InstrPrty>NORM</InstrPrty><CtgyPurp><Cd>SUPP</Cd></CtgyPurp></PmtTpInf><Amt><InstdAmt Ccy='NOK'>10.00</InstdAmt></Amt><CdtrAgt><FinInstnId><BICFI>HAWODEH1XXX</BICFI><PstlAdr><AdrTp>ADDR</AdrTp><Ctry>DE</Ctry></PstlAdr></FinInstnId></CdtrAgt><Cdtr><Nm>CREDITOR</Nm><PstlAdr><AdrTp>ADDR</AdrTp><Ctry>DE</Ctry><AdrLine>STREET</AdrLine><AdrLine>STREET2</AdrLine></PstlAdr><CtryOfRes>DE</CtryOfRes></Cdtr><CdtrAcct><Id><Othr><Id>DE89370400440532013000</Id></Othr></Id></CdtrAcct></CdtTrfTxInf></PmtInf></CstmrCdtTrfInitn></Document>]]]]>><![CDATA[</content></Wrapper>]]></con:value>
+        </con:property>
+      </con:properties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="manualTestStep" name="PaymentInfo_Counter" id="20e98cf0-789d-45cd-9b12-5901feeb1f3f">
+    <con:description>Enter Number of Payment Info in a Message
+
+
+
+Note: Currently this supports same number of transactions for payment info 
+Ex: if user has 3 payment info and 2 transactions, then this script will generate 6 transactions altogether as below
+	Payment Info 1 --> Transaction1 -- Transaction2
+	Payment Info 2 --> Transaction3 -- Transaction4
+	Payment Info 3 --> Transaction5 -- Transaction6</con:description>
+    <con:settings/>
+    <con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:expectedResult/>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="manualTestStep" name="Transactions_Counter" id="97dce108-f626-47b7-ac75-d0a89bedaf15">
+    <con:description>Enter Number of Transactions in each payment info
+
+
+
+Note: Currently this supports same number of transactions for payment info 
+Ex: if user has 3 payment info and 2 transactions, then this script will generate 6 transactions altogether as below
+	Payment Info 1 --> Transaction1 -- Transaction2
+	Payment Info 2 --> Transaction3 -- Transaction4
+	Payment Info 3 --> Transaction5 -- Transaction6</con:description>
+    <con:settings/>
+    <con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:expectedResult/>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="Create_InputFile" id="1c378913-5250-4da1-a42a-2409e892fabe">
+    <con:settings/>
+    <con:config>
+      <script>import java.io.*;
+import java.util.*;
+import java.text.SimpleDateFormat;
+import com.eviware.soapui.support.GroovyUtils.*;
+
+step = "Properties";
+endToEndID = "ETE_"+dateTime();
+org_id = context.expand( '${#TestSuite#orgid}');
+userid = context.expand( '${#TestSuite#UserID}');
+
+orgId_Bic = context.expand( '${#TestSuite#orgId_Bic}');
+customerid = context.expand( '${#TestSuite#customerid}');
+Account = context.expand( '${#TestSuite#accountNumber}');
+agreementid = context.expand( '${#TestSuite#AgreementId}');
+
+currency_Code = context.expand( '${#TestSuite#currencyCode}');
+transactionCount = context.expand( '${Transactions_Counter#Result}');
+paymentInfoCount = context.expand( '${PaymentInfo_Counter#Result}');
+
+prepareMessage();
+
+public void prepareMessage(){
+	setProperty(step,"paymentInfoCount",paymentInfoCount);
+	setProperty(step,"transactionCount",transactionCount);
+	
+	addMessageHeader();
+	addMessageBody();
+}
+
+public void addMessageHeader(){
+	def template_MessageHeader = context.expand( '${Properties#template_MessageHeader}');
+	messageWithHeader = template_MessageHeader.replaceAll("AGREEMENT_ID",agreementid);
+	messageWithHeader = messageWithHeader.replaceAll("ORG_ID",org_id);
+	messageWithHeader = messageWithHeader.replaceAll("USER_ID",userid);
+	messageWithHeader = messageWithHeader.replaceAll("CUSTOMER_ID",customerid);
+	messageWithHeader = messageWithHeader.replaceAll("DATE",dueDate());
+
+	def xmlNodeString = getXmlNodeString(paymentInfoCount as int);
+	messageWithHeader = messageWithHeader.replaceAll("ADD_ACCOUNTS",xmlNodeString);
+	
+	setProperty(step,"msg_Header",messageWithHeader);
+	addHeaderAccounts();
+}
+
+public void addHeaderAccounts(){
+	def msg_Header = context.expand( '${Properties#msg_Header}');
+	def template_Message = context.expand( '${Properties#template_Message}');
+	def template_HeaderAccounts = context.expand( '${Properties#template_HeaderAccounts}');
+
+	headerAccounts = template_HeaderAccounts.replaceAll("ACCOUNT_ID",Account);
+	headerAccounts = headerAccounts.replaceAll("BANK_BIC",orgId_Bic);
+	headerAccounts = headerAccounts.replaceAll("CURRENCY_CODE",currency_Code);
+	header = msg_Header.replaceAll("XMLValue",headerAccounts)
+
+	msg_Header = template_Message.replaceAll("header",header)
+	setProperty(step,"msg_Header",msg_Header);
+}
+
+public void addMessageBody(){
+	def template_MessageBody = context.expand( '${Properties#template_MessageBody}');
+	def msg_Header = context.expand( '${Properties#msg_Header}');
+
+	messageBody = template_MessageBody.replaceAll("MSG_ID",dateTime()+"-"+uuid(1000));
+	messageBody = messageBody.replaceAll("TRANSACTION_COUNT",transactionCount);
+	messageBody = messageBody.replaceAll("AMT",getControlSumAmount());
+	messageBody = messageBody.replaceAll("DATE",dueDate());
+	messageBody = messageBody.replaceAll("BANK_BIC",orgId_Bic);
+	
+	msg_Header_PayInfo = msg_Header.replaceAll("body",messageBody);
+	setProperty(step,"msg_Header_PayInfo",msg_Header_PayInfo)
+
+	addPaymentInfo();
+}
+
+public void addPaymentInfo(){
+	def messageBody = context.expand( '${Properties#msg_Header_PayInfo}');
+	def template_PaymentInfoBody = context.expand( '${Properties#template_PaymentInfoBody}');
+
+	paymentInfoBody = template_PaymentInfoBody.replaceAll("PAY_INFO_ID",dateTime()+"-"+uuid(1000));
+	paymentInfoBody = paymentInfoBody.replaceAll("AMT",getControlSumAmount());
+	paymentInfoBody = paymentInfoBody.replaceAll("DATE",dueDate());
+	paymentInfoBody = paymentInfoBody.replaceAll("ACCOUNT_ID",Account);
+	paymentInfoBody = paymentInfoBody.replaceAll("BANK_BIC",orgId_Bic);
+	paymentInfoBody = paymentInfoBody.replaceAll("TRANSACTION_COUNT",transactionCount);
+	messageBody = messageBody.replaceAll("PAYMENTINFO_BODY",paymentInfoBody);
+
+	xmlNodeString = getXmlNodeString(transactionCount as int);
+	messageBody = messageBody.replaceAll("TRANSACTIONS_BODY",xmlNodeString);
+	setProperty(step,"msg_Header_PayInfo",messageBody);
+	addTransactions();
+}
+
+public void addTransactions(){
+	def messageBody = context.expand( '${Properties#msg_Header_PayInfo}');
+	def transactionsBody = context.expand( '${Properties#template_TransactionsBody}');
+
+	transactions = transactionsBody.replaceAll("INSTRUCTIONS_ID",dateTime()+"-"+uuid(1000));
+	transactions = transactions.replaceAll("ETE_ID",endToEndID);
+	transactions = transactions.replaceAll("AMT",getAmount());
+	messageBody = messageBody.replaceAll("XMLValue",transactions)
+
+	setProperty(step,"msg_Header_PayInfo_Transactions",messageBody)
+	log.info messageBody
+}
+
+public void setProperty(step, name, value) {
+	testRunner.testCase.getTestStepByName(step).setPropertyValue(name,value)
+}
+
+public int uuid(int counter){
+	counter = counter*1000;
+	int uuid = Math.abs(new Random().nextInt() % counter) + 1;
+	return uuid;
+}
+
+public String getAmount(){
+	String amount = context.expand( '${Properties#transaction_Amount}' );
+	return amount;
+}
+
+public String dateTime(){
+	def dateTime = getDate("ddMMyy_hhmm",0);
+	return dateTime;
+}
+
+public String dueDate(){
+	def dueDate = getDate("yyyy-MM-dd",0);
+	return dueDate;
+}
+
+public String getXmlNodeString(counter){
+	def xmlNodeString="";
+	for (int i = 0; i &lt; counter; i++){
+		xmlNodeString = xmlNodeString+"XMLValue"
+	}
+	return xmlNodeString;
+}
+
+public String getControlSumAmount(){
+	def transactionAmount = context.expand( '${Properties#transaction_Amount}' );
+	
+	int amt = (transactionCount as int)*(transactionAmount as int);
+	def amount =  amt as String;
+	return amount;
+}
+
+public String getDate(def timeFormat, int addDays){
+	Date date = new Date();
+	SimpleDateFormat dateFormat = new SimpleDateFormat(timeFormat);
+	def dateTime = dateFormat.format(date);
+	
+	Calendar calendar = Calendar.getInstance();
+	calendar.setTime(dateFormat.parse(dateTime));
+	calendar.add(Calendar.DATE, addDays);
+	String getDate = dateFormat.format(calendar.getTime());
+	return getDate;
+}</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="Create_InputFile_BackUp" id="f6a871df-5cfa-4833-a3a2-a36b248e4677" disabled="true">
+    <con:settings/>
+    <con:config>
+      <script>import java.io.*;
+import java.util.*;
+import java.text.SimpleDateFormat;
+import com.eviware.soapui.support.GroovyUtils.*;
+
+step = "Properties";
+endToEndID = "ETE_"+dateTime();
+org_id = context.expand( '${#TestSuite#orgid}');
+userid = context.expand( '${#TestSuite#UserID}');
+
+orgId_Bic = context.expand( '${#TestSuite#orgId_Bic}');
+customerid = context.expand( '${#TestSuite#customerid}');
+Account = context.expand( '${#TestSuite#accountNumber}');
+agreementid = context.expand( '${#TestSuite#AgreementId}');
+
+currency_Code = context.expand( '${#TestSuite#currencyCode}');
+transactionCount = context.expand( '${Transactions_Counter#Result}');
+paymentInfoCount = context.expand( '${PaymentInfo_Counter#Result}');
+
+prepareMessage();
+
+public void prepareMessage(){
+	setProperty(step,"paymentInfoCount",paymentInfoCount);
+	setProperty(step,"transactionCount",transactionCount);
+	
+	addMessageHeader();
+	addMessageBody();
+}
+
+public void addMessageHeader(){
+	def template_MessageHeader = context.expand( '${Properties#template_MessageHeader}');
+	messageWithHeader = template_MessageHeader.replaceAll("AGREEMENT_ID",agreementid);
+	messageWithHeader = messageWithHeader.replaceAll("ORG_ID",org_id);
+	messageWithHeader = messageWithHeader.replaceAll("USER_ID",userid);
+	messageWithHeader = messageWithHeader.replaceAll("CUSTOMER_ID",customerid);
+	messageWithHeader = messageWithHeader.replaceAll("DATE",dueDate());
+	
+	def xmlNodeString = getXmlNodeString(paymentInfoCount as int);
+	messageWithHeader = messageWithHeader.replaceAll("ADD_ACCOUNTS",xmlNodeString);
+	
+	setProperty(step,"msg_Header",messageWithHeader);
+	addHeaderAccounts();
+}
+
+public void addHeaderAccounts(){
+	def msg_Header = context.expand( '${Properties#msg_Header}');
+	def template_Message = context.expand( '${Properties#template_Message}');
+	def template_HeaderAccounts = context.expand( '${Properties#template_HeaderAccounts}');
+
+	headerAccounts = template_HeaderAccounts.replaceAll("ACCOUNT_ID",Account);
+	headerAccounts = headerAccounts.replaceAll("BANK_BIC",orgId_Bic);
+	headerAccounts = headerAccounts.replaceAll("CURRENCY_CODE",currency_Code);
+	header = msg_Header.replaceAll("XMLValue",headerAccounts)
+
+	msg_Header = template_Message.replaceAll("header",header)
+	setProperty(step,"msg_Header",msg_Header);
+}
+
+public void addMessageBody(){
+	def template_MessageBody = context.expand( '${Properties#template_MessageBody}');
+	def msg_Header = context.expand( '${Properties#msg_Header}');
+
+	messageBody = template_MessageBody.replaceAll("MSG_ID",dateTime()+uuid());
+	messageBody = messageBody.replaceAll("TRANSACTION_COUNT",transactionCount) ;
+	messageBody = messageBody.replaceAll("AMT",getControlSumAmount()) ;
+	messageBody = messageBody.replaceAll("DATE",dueDate()) ;
+	messageBody = messageBody.replaceAll("BANK_BIC",orgId_Bic) ;
+	
+	msg_Header_PayInfo = msg_Header.replaceAll("body",messageBody);
+	setProperty(step,"msg_Header_PayInfo",msg_Header_PayInfo)
+
+	addPaymentInfo();
+}
+
+public void addPaymentInfo(){
+	def messageBody = context.expand( '${Properties#msg_Header_PayInfo}');
+	def template_PaymentInfoBody = context.expand( '${Properties#template_PaymentInfoBody}');
+
+	paymentInfoBody = template_PaymentInfoBody.replaceAll("PAY_INFO_ID",dateTime()+uuid());
+	paymentInfoBody = paymentInfoBody.replaceAll("AMT",getControlSumAmount());
+	paymentInfoBody = paymentInfoBody.replaceAll("DATE",dueDate());
+	paymentInfoBody = paymentInfoBody.replaceAll("ACCOUNT_ID",Account);
+	paymentInfoBody = paymentInfoBody.replaceAll("BANK_BIC",orgId_Bic);
+	paymentInfoBody = paymentInfoBody.replaceAll("TRANSACTION_COUNT",transactionCount);
+	messageBody = messageBody.replaceAll("PAYMENTINFO_BODY",paymentInfoBody);
+
+	xmlNodeString = getXmlNodeString(transactionCount as int);
+	messageBody = messageBody.replaceAll("TRANSACTIONS_BODY",xmlNodeString);
+	setProperty(step,"msg_Header_PayInfo",messageBody);
+	addTransactions();
+}
+
+public void addTransactions(){
+	def messageBody = context.expand( '${Properties#msg_Header_PayInfo}');
+	def transactionsBody = context.expand( '${Properties#template_TransactionsBody}');
+
+	transactions = transactionsBody.replaceAll("INSTRUCTIONS_ID",dateTime()+uuid());
+	transactions = transactions.replaceAll("ETE_ID",endToEndID);
+	transactions = transactions.replaceAll("AMT",getAmount());
+	messageBody = messageBody.replaceAll("XMLValue",transactions)
+
+	setProperty(step,"msg_Header_PayInfo_Transactions",messageBody)
+	log.info messageBody
+}
+
+public void setProperty(step, name, value) {
+	testRunner.testCase.getTestStepByName(step).setPropertyValue(name,value)
+}
+
+public String uuid(){
+	def uuid = Math.abs(new Random().nextInt() % 60000) + 1;
+	return uuid;
+}
+
+public String getAmount(){
+	String amount = context.expand( '${Properties#transaction_Amount}' );
+	return amount;
+}
+
+public String dateTime(){
+	def dateTime = getDate("ddMMyy_hhmm",0);
+	return dateTime;
+}
+
+public String dueDate(){
+	def dueDate = getDate("yyyy-MM-dd",0);
+	return dueDate;
+}
+
+public String getXmlNodeString(counter){
+	def xmlNodeString="";
+	for (int i = 0; i &lt; counter; i++){
+		xmlNodeString = xmlNodeString+"XMLValue"
+	}
+	return xmlNodeString;
+}
+
+public String getControlSumAmount(){
+	def transactionAmount = context.expand( '${Properties#transaction_Amount}' );
+	
+	int amt = (transactionCount as int)*(transactionAmount as int);
+	def amount =  amt as String;
+	return amount;
+}
+
+public String getDate(def timeFormat, int addDays){
+	Date date = new Date();
+	SimpleDateFormat dateFormat = new SimpleDateFormat(timeFormat);
+	def dateTime = dateFormat.format(date);
+	
+	Calendar calendar = Calendar.getInstance();
+	calendar.setTime(dateFormat.parse(dateTime));
+	calendar.add(Calendar.DATE, addDays);
+	String getDate = dateFormat.format(calendar.getTime());
+	return getDate;
+}</script>
+    </con:config>
+  </con:testStep>
+  <con:setupScript/>
+  <con:properties>
+    <con:property>
+      <con:name>ConnectionString</con:name>
+      <con:value>jdbc:oracle:thin:pendata/pen@//10.246.89.97:1530/pen_g_functional</con:value>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>d364be37-6ee9-4faf-a9c4-4441fbe4f0f0</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>2509a06b-e0de-4089-91ff-5c8e84f5d2f7</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>5548e896-467c-4784-b59c-09cae55b853f</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>a4f21d14-8f95-4909-8b09-e1ad028d04bf</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>3feec4e9-8ad2-4f94-957d-b60e43f7bc7d</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>96fa976f-d214-45db-bf7b-a383977cf429</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>765cd4a6-23d1-413d-85ed-de6a2dd27736</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>00f6e08e-4e92-4472-bf9b-f4702459f096</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>f89f5103-553e-4372-96c7-54c4b86d5bb1</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>ff6e3b52-f20c-4fb1-9634-0c5c16785094</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>42387034-d139-4e59-88e1-a15aefe717f5</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>7d87a150-b763-4a35-81bb-9460df3c23f6</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>e82d229e-4bb2-4683-bf62-bd025282ff35</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

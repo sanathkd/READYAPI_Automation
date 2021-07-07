@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="a1aa75f8-2fd9-45b9-83a0-681919c76353" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="JMS" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="a1aa75f8-2fd9-45b9-83a0-681919c76353fileName">JMS</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

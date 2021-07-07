@@ -4,10 +4,27 @@
     <con:setting id="011d4e8e-42d0-4c8d-9be5-52416e7997a0fileName">01.CREATE_NEW_PROJECT</con:setting>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
-  <con:testStep type="groovy" name="01.CREATE_NEW_PROJECT" id="b790b6b0-b77e-4ad6-87aa-28237297ce9e">
+  <con:testStep type="groovy" name="01.Create New Project" id="b790b6b0-b77e-4ad6-87aa-28237297ce9e">
     <con:settings/>
     <con:config>
-      <script>CREATE_NEW_PROJECT.create( "READYAPI_GROOVY_PROJECT" , context);</script>
+      <script>/* Either we can use individual commands or use single CREATE method
+ * CreateNewProject.addNewProject("Test Project", "C:", context)
+ * CreateNewProject.addTestSuite("Test Project", "testing", context);
+ */
+
+CreateNewProject.create( "PROJECT_UNDER_TEST" , context);</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="01.Create New Project Only" id="28e50788-f056-4678-934e-5d4ae0390038">
+    <con:settings/>
+    <con:config>
+      <script>CreateNewProject.addNewProject("Test Project", "C:", context)</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="01.Create New Test Suite" id="b068f55d-74ac-4232-a9b6-15a85e6cbc88">
+    <con:settings/>
+    <con:config>
+      <script>CreateNewProject.addTestSuite("Test Project", "testing", context);</script>
     </con:config>
   </con:testStep>
   <con:properties/>

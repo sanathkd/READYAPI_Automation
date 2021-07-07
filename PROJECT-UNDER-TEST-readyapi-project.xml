@@ -1,32 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="cef766b1-d0c8-4880-b3a2-43fac00851d3" created="3.4.0" activeEnvironment="Default environment" name="READYAPI_GROOVY_PROJECT" resourceRoot="" compositeProjectFormat="1.3" updated="3.9.0" encryptionMode="Not encrypted" scriptLibrary="C:\READYAPI_Automation\scripts" xmlns:con="http://eviware.com/soapui/config">
-  <con:settings>
-    <con:setting id="cef766b1-d0c8-4880-b3a2-43fac00851d3fileName">READYAPI_Automation</con:setting>
-    <con:setting id="ProjectSettings@hermesConfig">C:\Users\Ei06593/.hermes</con:setting>
-  </con:settings>
-  <con:savedRecentRuns>1</con:savedRecentRuns>
-  <con:requirements/>
+<con:soapui-project id="6221363d-0a1d-49f7-bdc7-d768a9803688" created="3.8.1" activeEnvironment="Default environment" name="PROJECT_UNDER_TEST" updated="3.8.1 2021-05-25T17:56:21Z" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings/>
   <con:properties/>
   <con:wssContainer/>
-  <con:databaseConnectionContainer>
-    <con:databaseConnection>
-      <con:name>JDBC-Connection</con:name>
-      <con:driver>oracle.jdbc.driver.OracleDriver</con:driver>
-      <con:connectionString>sampleConnectionString</con:connectionString>
-      <con:connectionProperties/>
-    </con:databaseConnection>
-  </con:databaseConnectionContainer>
-  <con:jmsConnectionContainer>
-    <con:jmsConnection>
-      <con:name>http://127.0.0.1:8161/index.html</con:name>
-      <con:extraProperties/>
-    </con:jmsConnection>
-  </con:jmsConnectionContainer>
+  <con:databaseConnectionContainer/>
+  <con:jmsConnectionContainer/>
   <con:oAuth2ProfileContainer/>
   <con:oAuth1ProfileContainer/>
-  <con:beforeRunScript>def objProject = context.getProject()
-def projPath = objProject.getPath()
-objProject.setScriptLibrary(projPath + File.separator + "scripts")</con:beforeRunScript>
+  <con:reporting>
+    <con:xmlTemplates/>
+    <con:parameters/>
+  </con:reporting>
   <con:eventHandlers type="RequestFilter.filterRequest" name="RequestFilter.filterRequest">
     <con:script>// Sample event script to add custom HTTP header to all outgoing REST, SOAP and HTTP(S) calls
 // This code is often used for adding custom authentication to ReadyAPI functional tests
