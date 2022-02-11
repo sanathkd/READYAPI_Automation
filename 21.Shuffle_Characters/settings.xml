@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="a0bc0ca2-35e3-4f9d-8e37-599f076b96ed" name="21.Shuffle_Characters" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="a0bc0ca2-35e3-4f9d-8e37-599f076b96edfileName">21.Shuffle_Characters</con:setting>
+  </con:settings>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

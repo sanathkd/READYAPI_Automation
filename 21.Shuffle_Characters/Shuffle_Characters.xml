@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="ec4f9e1c-387a-4005-a3a9-5bb5c0c78ce5" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Shuffle_Characters" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="ec4f9e1c-387a-4005-a3a9-5bb5c0c78ce5fileName">Shuffle_Characters</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="groovy" name="Shuffle_Characters" id="ab272eb8-f415-40b6-aa21-ef77081e988a">
+    <con:settings/>
+    <con:config>
+      <script>//Characters.shuffle("abcdef");
+Characters.scramble("abcdef");</script>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>
