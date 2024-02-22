@@ -199,7 +199,7 @@ We cannot make Payment Info 1 to have only one transaction and Payment Info 2 to
         </con:property>
         <con:property>
           <con:name>paymentInfoCount</con:name>
-          <con:value>1</con:value>
+          <con:value/>
         </con:property>
         <con:property>
           <con:name>transaction_Amount</con:name>
@@ -207,7 +207,7 @@ We cannot make Payment Info 1 to have only one transaction and Payment Info 2 to
         </con:property>
         <con:property>
           <con:name>transactionCount</con:name>
-          <con:value>1</con:value>
+          <con:value/>
         </con:property>
         <con:property>
           <con:name>msg_Header</con:name>

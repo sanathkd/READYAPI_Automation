@@ -19,12 +19,14 @@ def nextMonthDate = Calendar.getInstance();
 def afterTwoMonths = Calendar.getInstance();
 def lastDay = Calendar.getInstance();
 def exempttodate = Calendar.getInstance()
+
 oneWeekFromNow.add(Calendar.WEEK_OF_YEAR, 1); //One Week from Current Date
 oneMonthFromNow.add(Calendar.MONTH, 1);     //One Month from Current Date
 nextMonthDate.add(Calendar.MONTH, 1);       //One Month increment for calculating next month first date
 afterTwoMonths.add(Calendar.MONTH, 2);
 nextMonthDate.set(Calendar.DATE, nextMonthDate.getActualMinimum(Calendar.DAY_OF_MONTH));    //First Date of next month
 afterTwoMonths.set(Calendar.DATE, afterTwoMonths.getActualMaximum(Calendar.DAY_OF_MONTH));
+
 Date nextMonthFirstDate = nextMonthDate.getTime();
 Date twoMonthEnd = afterTwoMonths.getTime();
 exempttodate.add(Calendar.WEEK_OF_YEAR, 1);
@@ -33,6 +35,7 @@ Date tomorrow = new Date(currentDate.getYear(),currentDate.getMonth(),currentDat
 Date midOfNextMonth = new Date(nextMonthFirstDate.getYear(),nextMonthFirstDate.getMonth(),nextMonthFirstDate.getDate()+addToGetMid);
 Date lastDayOfMonth = new Date(nextMonthFirstDate.getYear(),nextMonthFirstDate.getMonth(),nextMonthFirstDate.getDate()-1);
 Date secondLastDay = new Date(nextMonthFirstDate.getYear(),nextMonthFirstDate.getMonth(),nextMonthFirstDate.getDate()-2);
+
 log.info " CurrentDate:- "+sdf.format(currentDate.getTime());
 log.info " Tomorrow:- "+sdf.format(tomorrow);
 log.info " OneWeekFromNow:- "+sdf.format(oneWeekFromNow.getTime());
@@ -43,6 +46,7 @@ log.info " SecondLastDay:- "+sdf.format(secondLastDay);
 log.info " TwoMonthEnd:- "+sdf.format(twoMonthEnd);
 log.info " skipFromDate:- "+sdf.format(oneWeekFromNow.getTime());
 log.info " skipToDate:- "+sdf.format(exempttodate.getTime());
+
 testRunner.testCase.setPropertyValue( "currentDate", sdf.format(currentDate.getTime()));
 testRunner.testCase.setPropertyValue( "tomorrow", sdf.format(tomorrow));
 testRunner.testCase.setPropertyValue( "oneWeekFromNow", sdf.format(oneWeekFromNow.getTime()));
@@ -58,43 +62,43 @@ testRunner.testCase.setPropertyValue( "skipToDate", sdf.format(exempttodate.getT
   <con:properties>
     <con:property>
       <con:name>currentDate</con:name>
-      <con:value>2018-04-02</con:value>
+      <con:value>2022-11-03</con:value>
     </con:property>
     <con:property>
       <con:name>tomorrow</con:name>
-      <con:value>2018-04-03</con:value>
+      <con:value>2022-11-04</con:value>
     </con:property>
     <con:property>
       <con:name>oneWeekFromNow</con:name>
-      <con:value>2018-04-09</con:value>
+      <con:value>2022-11-10</con:value>
     </con:property>
     <con:property>
       <con:name>oneMonthFromNow</con:name>
-      <con:value>2018-05-02</con:value>
+      <con:value>2022-12-03</con:value>
     </con:property>
     <con:property>
       <con:name>midOfNextMonth</con:name>
-      <con:value>2018-05-15</con:value>
+      <con:value>2022-12-15</con:value>
     </con:property>
     <con:property>
       <con:name>lastDayOfMonth</con:name>
-      <con:value>2018-04-30</con:value>
+      <con:value>2022-11-30</con:value>
     </con:property>
     <con:property>
       <con:name>secondLastDay</con:name>
-      <con:value>2018-04-29</con:value>
+      <con:value>2022-11-29</con:value>
     </con:property>
     <con:property>
       <con:name>TwoMonthsEnd</con:name>
-      <con:value>2018-06-30</con:value>
+      <con:value>2023-01-31</con:value>
     </con:property>
     <con:property>
       <con:name>skipFromDate</con:name>
-      <con:value>2018-04-09</con:value>
+      <con:value>2022-11-10</con:value>
     </con:property>
     <con:property>
       <con:name>skipToDate</con:name>
-      <con:value>2018-04-11</con:value>
+      <con:value>2022-11-12</con:value>
     </con:property>
   </con:properties>
   <con:reportParameters/>

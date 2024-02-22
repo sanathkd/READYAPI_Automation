@@ -8,7 +8,7 @@
     <con:settings/>
     <con:config>
       <script>//	Remove Test Env in this project
-	NEW_TEST_ENVIRONMENT.remove ( "test1" , context );
+	NEW_TEST_ENVIRONMENT.remove ( "S_Test" , context );
 
 //	Remove Test Env in Othe project
 //	NEW_TEST_ENVIRONMENT.remove ( "GROOVY_SCRIPTING" , "test2" , context );</script>

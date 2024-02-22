@@ -10,13 +10,15 @@
     <con:config>
       <script>import org.apache.commons.lang.RandomStringUtils
 
-testRunner.testCase.setPropertyValue( "msgId", RandomStringUtils.random(35, (('A'..'Z')+('0'..'9')).join()))</script>
+String randomId = RandomStringUtils.random(35, (('A'..'Z')+('0'..'9')).join());
+testRunner.testCase.setPropertyValue( "msgId", randomId);
+log.info randomId;</script>
     </con:config>
   </con:testStep>
   <con:properties>
     <con:property>
       <con:name>msgId</con:name>
-      <con:value>ENLCE995ET9YXQX8GML32OH9K1Q4G2U17BW</con:value>
+      <con:value>TGGYZVGH0WX1G9SD8DYVJ2YNPNKZQ1J817C</con:value>
     </con:property>
   </con:properties>
   <con:reportParameters/>

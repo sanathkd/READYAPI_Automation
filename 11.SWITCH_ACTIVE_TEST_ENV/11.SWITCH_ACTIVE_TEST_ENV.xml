@@ -7,19 +7,18 @@
   <con:testStep type="groovy" name="11.SWITCH_ACTIVE_TEST_ENV" id="e1e13ded-67c7-4d08-8586-e2d1c904cde3">
     <con:settings/>
     <con:config>
-      <script>projectName = context.testCase.testSuite.project.getName();
-log.info "projectName: "+projectName
+      <script>def project = context.testCase.testSuite.project;
+def projectName = project.getName();
+def workspace = project.workspace;
+def getActiveEnv = project.getActiveEnvironment();
+def activeEnvName = getActiveEnv.getName();
 
-def workspace = context.testCase.testSuite.project.workspace
-def project = workspace.getProjectByName(projectName)
+log.info "Project Name: "+projectName
 
-def getEnv = project.getActiveEnvironment().getName();
-if ( getEnv != null &amp;&amp; !getEnv.equalsIgnoreCase("Default environment") )
-{
-	def envName = project.getEnvironmentByName(getEnv)
-	log.info "envName: "+envName
-	log.info project.setActiveEnvironment(envName);
-}</script>
+if ( getActiveEnv != null &amp;&amp; !activeEnvName.equalsIgnoreCase("Default environment") ) {
+	project.setActiveEnvironment(getActiveEnv);
+	log.info "Environment \""+activeEnvName + "\" is active now.";
+} else log.info "No test environment defined. Currently there is only "+activeEnvName;</script>
     </con:config>
   </con:testStep>
   <con:properties/>

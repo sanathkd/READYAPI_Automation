@@ -7,10 +7,11 @@
   <con:testStep type="groovy" name="Shuffle_Characters" id="ab272eb8-f415-40b6-aa21-ef77081e988a">
     <con:settings/>
     <con:config>
-      <script>//Characters.shuffle("abcdef");
-Characters.scramble("abcdef");</script>
+      <script>Characters.shuffle("san ath");
+//Characters.scramble("abcdef");</script>
     </con:config>
   </con:testStep>
+  <con:setupScript/>
   <con:properties/>
   <con:reportParameters/>
 </con:testCase>

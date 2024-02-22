@@ -165,7 +165,7 @@ Write subsequest steps to make use of these payments.</con:expectedResult>
         </con:property>
         <con:property>
           <con:name>paymentInfoCount</con:name>
-          <con:value>1</con:value>
+          <con:value/>
         </con:property>
         <con:property>
           <con:name>transaction_Amount</con:name>
@@ -173,7 +173,7 @@ Write subsequest steps to make use of these payments.</con:expectedResult>
         </con:property>
         <con:property>
           <con:name>transactionCount</con:name>
-          <con:value>2</con:value>
+          <con:value/>
         </con:property>
         <con:property>
           <con:name>msg_Header</con:name>

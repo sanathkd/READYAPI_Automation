@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="cef766b1-d0c8-4880-b3a2-43fac00851d3" created="3.4.0" activeEnvironment="Default environment" name="READYAPI_GROOVY_PROJECT" resourceRoot="" compositeProjectFormat="1.3" updated="3.9.0" encryptionMode="Not encrypted" scriptLibrary="C:\READYAPI_Automation\scripts" xmlns:con="http://eviware.com/soapui/config">
+<con:soapui-project id="cef766b1-d0c8-4880-b3a2-43fac00851d3" created="3.4.0" activeEnvironment="Default environment" name="READYAPI_GROOVY_PROJECT" resourceRoot="${projectDir}" compositeProjectFormat="1.3" updated="3.41.1" encryptionMode="Not encrypted" scriptLibrary="C:\GITHUB_REPOSITORY\PERSONAL\READYAPI_Automation\scripts" defaultScriptLanguage="Groovy" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="cef766b1-d0c8-4880-b3a2-43fac00851d3fileName">READYAPI_Automation</con:setting>
     <con:setting id="ProjectSettings@hermesConfig">C:\Users\Ei06593/.hermes</con:setting>
+    <con:setting id="ProjectSettings@shadowPassword"/>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
   <con:requirements/>

@@ -18,7 +18,7 @@ testRunner.testCase.setPropertyValue( "ProjectDirectory", project.getPath());</s
   <con:properties>
     <con:property>
       <con:name>ProjectDirectory</con:name>
-      <con:value>C:\GIT\pin-legacy-soapui</con:value>
+      <con:value>C:\GITHUB_REPOSITORY\PERSONAL\READYAPI_Automation</con:value>
     </con:property>
   </con:properties>
   <con:reportParameters/>
